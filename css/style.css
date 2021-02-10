@@ -1,0 +1,168 @@
+body {
+    background-color: #81CBFC;
+    font-family: 'Montserrat', 'Century Gothic', sans-serif;
+    margin:0px;
+}
+
+hr {
+    height: 3px;
+    background-color: black;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 20px;
+    text-align: center;
+}
+.userbox {
+    float:right;
+}
+.userbox p {
+    font-weight: bold;
+    text
+    color: red;
+}
+
+.userbox button {
+    color:white;
+    font-family: 'Montserrat', 'Century Gothic', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: black;
+    border-style: none;
+    border-radius: 30px;
+    padding: 10px 20px 10px 20px;
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    width: 80%;
+}
+
+.content {
+    max-width: 800px;
+    min-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 30px;
+    background-color: rgb(255,255,255, 0.5);
+    border-radius: 50px;
+}
+
+.search-wrapper {
+    width: 60%;
+    height: 40px;
+    background-color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 18px;
+    border-style: solid;
+    border-width: 1.5px;
+    border-radius: 30px;
+
+}
+
+.search-wrapper .textbox {
+    height:90%;
+    border-style: none;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-family: 'Montserrat', 'Century Gothic', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.search-wrapper #submit {
+    float: right;
+    height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 5px;
+    background-color: black;
+    border-style: none;
+    border-radius: 30px;
+}
+
+#searchicon {
+    height:80%;
+    padding:0px 20px;
+}
+
+.navbar {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    line-height: 5px;
+}
+
+.navbar li {
+    font-weight: bold;
+    font-size:20px;
+    display: inline-block;
+    padding: 0 .25em 0 0;
+}
+
+.navbar li:after {
+    content: " | ";
+    display: inline-block;
+    font-size: 100%;
+    margin: 0 0 0 .5em;
+}
+
+.navbar li:last-child:after {
+    content: " ";
+}
+.navbar li#last
+{
+    border: none;
+}
+
+.navbar a
+{
+    text-decoration: none;
+    color: black;
+}
+
+.navbar a:hover
+{
+    text-decoration: underline;
+}
+
+.footer {
+    clear: both;
+    padding: 10px;
+    background-color: #404040;
+    color:white;
+    text-align: center;
+}
+
+.footer h1 {
+    color: #D3D3D3;
+}
+
+.footer a
+{
+    color: white;
+    line-height: 0px;
+    text-weight: bold;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+#bottomtext p {
+    color:white;
+    font-size: 15px;
+    line-height: 5px;
+}
