@@ -15,8 +15,8 @@
         <meta name="theme-color" content="#ffffff">
     </head>
     <body>
-        <?php require 'header.php'; ?>
         <div class="content">
+        <?php require 'header.php'; ?>
 			<span class="content-body">
 			<p>Hello, Welcome to <strong>Pokésearch</strong>, an advanced
 				information lookup page that allows you to find any information
@@ -26,7 +26,7 @@
 			<p>To start, click on one of the links above or type in whatever you're
 				looking for in the search bar!</p>
 			</span>
-		</div>
         <?php require 'footer.php'; ?>
+        </div>
     </body>
 </html>
