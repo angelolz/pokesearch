@@ -26,7 +26,7 @@
 			<p>To start, click on one of the links above or type in whatever you're
 				looking for in the search bar!</p>
 			</span>
-        <?php require 'footer.php'; ?>
         </div>
+        <?php require 'footer.php'; ?>
     </body>
 </html>
