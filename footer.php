@@ -1,8 +1,8 @@
 <footer class="footer">
     <h1>Pokésearch</h1>
-    <p><a href="">Home</a></p>
-    <p><a href="">About</a></p>
-    <p><a href="">Contact Us</a></p>
+    <p><a href="index.php">Home</a></p>
+    <p><a href="about.php">About</a></p>
+    <p><a href="contact.php">Contact Us</a></p>
     <br>
     <span id="bottomtext">
         <p>Created with ♥ by Angel Legaspi</p>

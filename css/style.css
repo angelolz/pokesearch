@@ -1,6 +1,9 @@
+* {
+    font-family: 'Montserrat', 'Century Gothic', sans-serif;
+}
+
 body {
     background-color: #81CBFC;
-    font-family: 'Montserrat', 'Century Gothic', sans-serif;
     margin:0px;
 }
 
@@ -10,6 +13,20 @@ hr {
     border: none;
     margin-top: 10px;
     margin-bottom: 5px;
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+    display:block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    text-align: center;
+    display:block;
+    margin-bottom: -15px;
 }
 
 p {
@@ -30,6 +47,12 @@ p {
     margin-right: 5px;
 }
 
+.userbox #loggedin {
+    font-weight: normal;
+    color: black;
+    margin-right: 5px;
+}
+
 .userbox .user-buttons {
     width: 90px;
     padding: 10px 10px;
@@ -40,12 +63,11 @@ p {
     border-style: none;
     border-radius: 30px;
     text-align: center;
-    font-family: 'Montserrat', 'Century Gothic', sans-serif;
     font-weight: bold;
     font-size: 18px;
 }
 
-.logo {
+.logo img {
     display: block;
     width: 80%;
     margin-left: auto;
@@ -80,9 +102,7 @@ p {
     border-width: 1.5px
 }
 
-.search-wrapper input
-{
-    font-family: 'Montserrat', 'Century Gothic', sans-serif;
+.search-wrapper input {
     font-weight: bold;
     font-size: 20px;
     color: black;
@@ -94,7 +114,6 @@ p {
 }
 
 .search-wrapper button {
-    cursor: pointer;
     width: 100px;
     height: 100%;
     background-color: black;
@@ -167,7 +186,7 @@ p {
 {
     color: white;
     line-height: 0px;
-    text-weight: bold;
+    font-weight: bold;
     text-decoration: none;
 }
 
@@ -179,4 +198,32 @@ p {
     color:white;
     font-size: 15px;
     line-height: 5px;
+}
+
+#mininav {
+    background-color: #faf3f2;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    position:fixed;
+    top:-100px;
+    width: 100%;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    transition: top 0.3s;
+}
+
+#mininav #mini-logo img{
+    height: 40px;
+    margin: 10px 20px;
+}
+
+#mininav .search-wrapper {
+    flex-grow: 1;
+}
+
+#mininav .search-wrapper form{
+    margin:auto;
+    width: 90%;
+    /* padding-right: 10px; */
 }

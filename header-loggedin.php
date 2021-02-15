@@ -2,12 +2,12 @@
     <a href="index.php"><img src="img/logo.png"/></a>
 </span>
 <span class="userbox">
-    <p>You are not logged in!</p>
-    <a href="login.php" class="user-buttons">Login</a>
-    <a href="register.php" class="user-buttons">Register</a>
+    <p id="loggedin">Welcome, <strong>Angelolz!</strong></p>
+    <a href="profile.php" class="user-buttons">Profile</a>
+    <a href="index.php" class="user-buttons">Logout</a>
 </span>
 <span class="search-wrapper">
-    <form id="search" role="search"action="search.php">
+    <form id="search" role="search"action="">
         <input type="text" id="query" placeholder="Search anything here..." name="q"></input>
         <button id="submit"><img id="searchicon" src="img/searchicon.png"/></button>
     </form>

@@ -1,0 +1,131 @@
+ul {
+    list-style-type: none;
+    padding: 0 25px;
+}
+
+.container {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.sidebar {
+    background-color: white;
+    border-radius: 30px;
+    border: 1px solid grey;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.sidebar h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/*left sidebar stuff */
+.left {
+    width:45%;
+    text-align: center;
+}
+
+.folder {
+    cursor: pointer;
+    user-select: none;
+}
+
+.folder::before {
+    content: "+";
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.folder-open::before {
+  content: "-";
+}
+
+.nested {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.manage-teams button {
+    background-color: black;
+    color:white;
+    border-style: none;
+    border-radius: 30px;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-left:2px;
+    margin-right: 2px;
+}
+
+.teams-list {
+    text-align: left;
+}
+
+/*right sidebar stuff */
+.right {
+    width: 100%;
+    padding: 10px;
+    flex-grow: 1;
+}
+.pokemon {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.pokemon .lefthalf {
+    display: flex;
+    flex-direction: column;
+}
+
+.pokemon .lefthalf .icon img {
+    padding: 10px;
+    width: 100px;
+    height: 100px;
+    /* border: 1px solid grey; */
+}
+
+.pokemon .lefthalf .manage {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.pokemon .lefthalf .manage img {
+    margin: 5px;
+    width: 32px;
+    height: auto;
+}
+
+.pokemon .righthalf h2 {
+    font-size: 30px;
+    margin-bottom: -3px;
+}
+
+.pokemon .righthalf p {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.manage img {
+    width: 64px;
+    height: 64px;
+}
+
+.moveset button {
+    color:white;
+    background-color: black;
+    border-style: none;
+    border-radius: 30px;
+    font-size: 15px;
+    padding: 10px 40px;
+    margin: 2px;
+}
