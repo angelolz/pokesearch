@@ -1,9 +1,9 @@
 <html>
     <head>
-        <title>Pokésearch | Forgot Your Password</title>
+        <title>Pokésearch | </title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" type="text/css" href="css/login.css">
+        <link rel="stylesheet" type="text/css" href="css/profile.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
 
@@ -18,18 +18,10 @@
     <body>
         <?php require 'mininav.php'; ?>
         <div class="content">
-        <?php require 'header.php'; ?>
-			<h1>Forgot your password?</h1>
-            <div class="input-box">
-            <p>Enter your username or email below and a password reset link will
-                be sent to you in a few minutes.</p>
-                <br>
-            <p><b>Note: The link will expire in 15 minutes.</b></p>
-            <form method="post" action="">
-                <input class="textbox" type="text" name="username" placeholder="Email/Username"/>
-                <input class="button" type="submit" value="Submit"/>
-            </form>
-            </div>
+            <?php require 'header.php'; ?>
+            <h1>Sorry!</h1>
+            <p>This page is still under construction!</p>
+            <p>Please come back later when the site has been updated!</p>
         </div>
         <?php require 'footer.php'; ?>
     </body>

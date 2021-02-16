@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/profile.css">
-        <!-- <script src="scripts/treeview.js"></script> -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
 
@@ -17,6 +16,7 @@
         <meta name="theme-color" content="#ffffff">
     </head>
     <body>
+        <?php require 'mininav.php'; ?>
         <div class="content">
             <?php require 'header-loggedin.php'; ?>
             <div class="container">
@@ -46,15 +46,15 @@
                     </span>
 
                     <script>
-                    var toggler = document.getElementsByClassName("folder");
-                    var i;
+                        var toggler = document.getElementsByClassName("folder");
+                        var i;
 
-                    for (i = 0; i < toggler.length; i++) {
-                      toggler[i].addEventListener("click", function() {
-                        this.parentElement.querySelector(".nested").classList.toggle("active");
-                        this.classList.toggle("folder-open");
-                      });
-                    }
+                        for (i = 0; i < toggler.length; i++) {
+                          toggler[i].addEventListener("click", function() {
+                            this.parentElement.querySelector(".nested").classList.toggle("active");
+                            this.classList.toggle("folder-open");
+                          });
+                        }
                     </script>
                 </div>
                 <div class="sidebar right">

@@ -16,6 +16,7 @@
         <meta name="theme-color" content="#ffffff">
     </head>
     <body>
+        <?php require 'mininav.php'; ?>
         <div class="content">
         <?php require 'header.php'; ?>
 			<span class="content-body">
@@ -27,9 +28,9 @@
                         <input class="textbox"  type="password" name="password" placeholder="Password"/>
                         <br>
                         <input class="button" type="submit" value="Login"/>
-                        <button class="button" >Forgot your password?</button>
+                        <button class="button" id="forgot"><a href="forgot_password.php">Forgot your password?</a></button>
                     </form>
-                    <p>Don't have an account? <strong>Register <a href="login.php">here!</a></strong></p>
+                    <p>Don't have an account? <strong>Register <a href="register.php">here</a>!</strong></p>
                 </div>
 			</span>
         </div>

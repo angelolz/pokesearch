@@ -16,12 +16,12 @@
         <meta name="theme-color" content="#ffffff">
     </head>
     <body>
+        <?php require 'mininav.php'; ?>
         <div class="content">
         <?php require 'header.php'; ?>
 			<span class="content-body">
     			<h1>Register</h1>
                 <div class="input-box">
-                    <p>Already have an account? <strong>Login <a href="login.php">here!</a></strong></p>
                     <form method="post">
                         <input class="textbox" type="text" name="email" placeholder="Email"/>
                         <br>
@@ -33,6 +33,7 @@
                         <br>
                         <input class="button" type="submit" value="Register"/>
                     </form>
+                    <p>Already have an account? <strong>Login <a href="login.php">here</a>!</strong></p>
                 </div>
 			</span>
         </div>

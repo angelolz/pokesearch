@@ -28,6 +28,7 @@ ul {
     text-align: center;
 }
 
+/* unordered list stuff */
 .folder {
     cursor: pointer;
     user-select: none;
@@ -51,6 +52,7 @@ ul {
   display: block;
 }
 
+/* team management buttons */
 .manage-teams button {
     background-color: black;
     color:white;

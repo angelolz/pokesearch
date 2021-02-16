@@ -15,6 +15,7 @@
         <meta name="theme-color" content="#ffffff">
     </head>
     <body>
+        <?php require 'mininav.php'; ?>
         <div class="content">
         <?php require 'header.php'; ?>
             <span class="content-body">

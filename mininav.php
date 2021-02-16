@@ -3,7 +3,7 @@
         <a href="index.php"><img class="logo" src="img/logo.png"/></a>
     </span>
     <span class="search-wrapper">
-        <form id="search" role="search"action="search.php">
+        <form id="search" role="search" action="wip.php">
             <input type="text" id="query" placeholder="Search anything here..." name="q"></input>
             <button id="submit"><img id="searchicon" src="img/searchicon.png"/></button>
         </form>

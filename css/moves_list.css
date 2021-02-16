@@ -1,0 +1,63 @@
+/* pagination stuff */
+.nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#pagination {
+    list-style-type: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:-10px;
+    margin-bottom: 5px;
+    text-align: center;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+#pagination li {
+    font-weight: bold;
+    font-size:20px;
+    display: inline-block;
+    padding: 0 .25em 0 0;
+}
+
+form {
+    margin:auto;
+}
+
+/* list of moves */
+.list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 15px 15px;
+}
+
+/* individual move */
+.move {
+    min-width: 200px;
+    color: white;
+    background-color: black;
+    height: 30px;
+    border-radius: 30px;
+    margin: 5px 5px;
+    padding: 10px 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.move a {
+    text-decoration: none;
+    color: white;
+}
+
+.move a:hover {
+    text-decoration: underline;
+}
+
+.move p {
+    display: inline;
+}

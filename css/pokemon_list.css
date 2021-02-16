@@ -1,0 +1,59 @@
+.nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#pagination {
+    list-style-type: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:-10px;
+    margin-bottom: 5px;
+    text-align: center;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+#pagination li {
+    font-weight: bold;
+    font-size:20px;
+    display: inline-block;
+    padding: 0 .25em 0 0;
+}
+
+form {
+    margin: auto;
+}
+
+.list {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.list a {
+    text-decoration: none;
+    color: black;
+}
+
+.list a:hover {
+    text-decoration: underline;
+}
+
+.pokemon {
+    margin: 15px 5px;
+    text-align: center;
+}
+
+.icon img {
+    width: 120px;
+    height: 120px;
+    border: 2px solid grey;
+    padding: 10px;
+}
+
+.info {
+    line-height: 5px;
+}
