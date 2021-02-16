@@ -25,6 +25,7 @@ ul {
 /*left sidebar stuff */
 .left {
     width:45%;
+    max-height: 400px;
     text-align: center;
 }
 
