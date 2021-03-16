@@ -21,15 +21,21 @@
         <?php require 'header.php'; ?>
 			<span class="content-body">
     			<h1>Register</h1>
+                <?php
+                    if(isset($_SESSION['messages']))
+                    {
+                        echo "<pre>" . print_r($_SESSION['messages'],1) . "</pre>";
+                    }
+                ?>
                 <div class="input-box">
-                    <form method="post">
+                    <form method="post" action="handlers/register_handler.php">
                         <input class="textbox" type="text" name="email" placeholder="Email"/>
                         <br>
-                        <input class="textbox" type="text" name="username" placeholder="Username"/>
+                        <input class="textbox" type="text" name="username" placeholder="Username: 3-30 chars"/>
                         <br>
-                        <input class="textbox" type="password" name="password" placeholder="Password"/>
+                        <input class="textbox" type="password" name="password" placeholder="Password: 8-32 chars"/>
                         <br>
-                        <input class="textbox" type="password" name="password" placeholder="Confirm Password"/>
+                        <input class="textbox" type="password" name="conf-password" placeholder="Confirm Password"/>
                         <br>
                         <input class="button" type="submit" value="Register"/>
                     </form>

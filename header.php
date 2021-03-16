@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    require_once 'php_scripts/KLogger.php';
+    $logger = new KLogger("log.txt", KLogger::DEBUG);
+?>
 <span class="logo">
     <a href="index.php"><img src="img/logo.png"/></a>
 </span>
