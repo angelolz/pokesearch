@@ -57,5 +57,73 @@ class DBConnection
             $logger->LogWarn("Unable to register: " . $e-getMessage());
         }
     }
+
+    public function emailExists($email)
+    {
+        $con = $this->getConnection();
+        try
+        {
+            $q = $con->prepare("SELECT EXISTS(SELECT * FROM Users WHERE email = :email) AS 'exists'");
+            $q->bindParam(":email", $email);
+            $q->execute();
+
+            $exists = $q->fetch(PDO::FETCH_ASSOC);
+            return $exists;
+        }
+
+        catch (PDOException $e)
+        {
+            $this->$logger->LogWarn("Unable to check if email exists: " . $e-getMessage());
+        }
+    }
+
+    public function usernameTaken($username)
+    {
+        $con = $this->getConnection();
+        try
+        {
+            $q = $con->prepare("SELECT EXISTS(SELECT * FROM Users WHERE username = :username) AS 'exists'");
+            $q->bindParam(":username", $username);
+            $q->execute();
+
+            $exists = $q->fetch(PDO::FETCH_ASSOC);
+            return $exists;
+        }
+
+        catch (PDOException $e)
+        {
+            $this->$logger->LogWarn("Unable to check if username was taken: " . $e-getMessage());
+        }
+    }
+
+    public function userExists($username, $password)
+    {
+        $con = $this->getConnection();
+        try
+        {
+            $sql = "";
+            if(strpos($username, '@') !== false)
+            {
+                $sql = "SELECT * FROM Users WHERE email = :username AND password = :password;";
+            }
+
+            else
+            {
+                $sql = "SELECT * FROM Users WHERE username = :username AND password = :password;";
+            }
+
+            $q = $con->prepare($sql);
+            $q->bindParam(":username", $username);
+            $q->bindParam(":password", $password);
+            $q->execute();
+            $user = $q->fetch();
+            return $user;
+        }
+
+        catch (PDOException $e)
+        {
+            $this->$logger->LogWarn("Unable to check if username was taken: " . $e-getMessage());
+        }
+    }
 }
 ?>

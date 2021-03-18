@@ -18,7 +18,7 @@
     <body>
         <?php require 'mininav.php'; ?>
         <div class="content">
-            <?php require 'header-loggedin.php'; ?>
+            <?php require 'header.php'; ?>
             <div class="container">
                 <div class="sidebar left">
                     <h3>Your Teams</h3>

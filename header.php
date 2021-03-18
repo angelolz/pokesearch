@@ -7,9 +7,21 @@
     <a href="index.php"><img src="img/logo.png"/></a>
 </span>
 <span class="userbox">
-    <p>You are not logged in!</p>
-    <a href="login.php" class="user-buttons">Login</a>
-    <a href="register.php" class="user-buttons">Register</a>
+    <?php
+    if(isset($_SESSION['authenticated']) && $_SESSION['authenticated'] == true)
+    {
+        echo "<p id='loggedin'>Welcome, <strong>{$_SESSION['username']}</strong>!</p>";
+        echo '<a href="profile.php" class="user-buttons">Profile</a>';
+        echo '<a href="php_scripts/logout.php" class="user-buttons">Logout</a>';
+    }
+
+    else
+    {
+        echo '<p>You are not logged in!</p>';
+        echo '<a href="login.php" class="user-buttons">Login</a>';
+        echo '<a href="register.php" class="user-buttons">Register</a>';
+    }
+    ?>
 </span>
 <span class="search-wrapper">
     <form id="search" role="search"action="wip.php">

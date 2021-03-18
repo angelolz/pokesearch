@@ -20,10 +20,38 @@
         <div class="content">
         <?php require 'header.php'; ?>
 			<span class="content-body">
+                <?php
+                if(isset($_SESSION['messages']))
+                {
+                    echo "<div class='messages " . $_SESSION['class'] . "'>";
+                    if($_SESSION['class'] == "fail")
+                    {
+                        echo "<p><b>There was a problem with logging in:</b></p>";
+                        echo "<ul>";
+                        foreach($_SESSION['messages'] as $message)
+                        {
+                            echo "<li>{$message}</li>";
+                        }
+                        echo "</ul>";
+                    }
+
+                    else
+                    {
+                        foreach($_SESSION['messages'] as $message)
+                        {
+                            echo "<b>{$message}</b>";
+                        }
+                    }
+
+                    echo '</div>';
+
+                    $_SESSION['messages'] = null;
+                }
+                ?>
     			<h1>Login</h1>
                 <div class="input-box">
-                    <form method="post" action="profile.php">
-                        <input class="textbox" type="text" name="email" placeholder="Email/Username"/>
+                    <form method="post" action="handlers/login_handler.php">
+                        <input class="textbox" type="text" name="username" placeholder="Email/Username"/>
                         <br>
                         <input class="textbox"  type="password" name="password" placeholder="Password"/>
                         <br>

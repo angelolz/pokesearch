@@ -33,6 +33,29 @@
     font-size: 20px;
 }
 
+.messages {
+    margin: 10px 5px;
+    padding: 5px 20px;
+    border-radius: 30px;
+}
+
+.messages p {
+    text-align: left;
+    line-height: 5px;
+    margin-bottom: 0px;
+}
+
+.success {
+    background-color: #90EE90;
+    border: 2px solid #228B22;
+    text-align: center;
+}
+
+.fail {
+    background-color: #F08080;
+    border: 2px solid #FF0000;
+}
+
 #forgot a {
     text-decoration: none;
     color:white;

@@ -1,3 +1,11 @@
+<?php
+    if(isset($_SESSION['authenticated']) && $_SESSION['authenticated'] == true)
+    {
+        header('Location: profile.php');
+        exit;
+    }
+?>
+
 <html>
     <head>
         <title>Pokésearch | Register</title>
@@ -20,13 +28,23 @@
         <div class="content">
         <?php require 'header.php'; ?>
 			<span class="content-body">
-    			<h1>Register</h1>
                 <?php
                     if(isset($_SESSION['messages']))
                     {
-                        echo "<pre>" . print_r($_SESSION['messages'],1) . "</pre>";
+                        echo "<div class='messages " . $_SESSION['class'] . "'>";
+                        echo "<b>There was a problem with registering:</b>";
+                        echo "<ul>";
+                        foreach($_SESSION['messages'] as $message)
+                        {
+                            echo "<li>{$message}</li>";
+                        }
+                        echo "</ul>";
+                        echo '</div>';
+
+                        $_SESSION['messages'] = null;
                     }
                 ?>
+    			<h1>Register</h1>
                 <div class="input-box">
                     <form method="post" action="handlers/register_handler.php">
                         <input class="textbox" type="text" name="email" placeholder="Email"/>

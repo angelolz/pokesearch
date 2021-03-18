@@ -12,46 +12,46 @@
     $errors = array();
 
     $dbc = new DBConnection();
-    $logger = new KLogger("log.txt", KLogger::WARN);
+    $logger = new KLogger("../log.txt", KLogger::DEBUG);
 
     //check if email is valid
     if(!filter_var($email, FILTER_VALIDATE_EMAIL))
     {
-        $errors['email'][]="This email is invalid.";
+        $errors[]="This email is invalid.";
     }
 
     //check email length
     if(strlen($email) > 255)
     {
-        $errors['email'][]="Your email is too long.";
+        $errors[]="Your email is too long.";
     }
 
     //check username length
     if(strlen($username) < 3)
     {
-        $errors['username'][]="Your username is too short.";
+        $errors[]="Your username is too short.";
     }
 
     else if(strlen($username) > 32)
     {
-        $errors['username'][]="Your username is too long.";
+        $errors[]="Your username is too long.";
     }
 
     //check password length
-    if(strlen($username) < 8)
+    if(strlen($password) < 8)
     {
-        $errors['password'][]="Your password is too short.";
+        $errors[]="Your password is too short.";
     }
 
-    else if(strlen($username) > 32)
+    else if(strlen($passsword) > 32)
     {
-        $errors['password'][]="Your password is too long.";
+        $errors[]="Your password is too long.";
     }
 
     //check if password fields match
     if(strcmp($password, $confPassword) !== 0)
     {
-        $errors['password'][]="The password fields do not match.";
+        $errors[]="The password fields do not match.";
     }
 
     //errors check
@@ -79,7 +79,19 @@
         else
         {
             $_SESSION['class'] = "fail";
-            $_SESSION['messages'] = array("There is already an account registered with this email and/or username.");
+            $usernameTaken = $dbc->usernameTaken($username);
+            $emailExists = $dbc->emailExists($email);
+
+            if($usernameTaken['exists'] == 1)
+            {
+                $_SESSION['messages'][] = "That username is already taken.";
+            }
+
+            if($emailExists['exists'] == 1)
+            {
+                $_SESSION['messages'][] = "That email is already in use.";
+            }
+
             header('Location: ../register.php');
             exit;
         }
