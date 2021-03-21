@@ -4,12 +4,12 @@
     <head>
         <title>Pokésearch | </title>
         <meta charset="UTF-8">
-        <?php require 'layouts/favicon.php'; ?>
+        <?php require_once 'layouts/favicon.php'; ?>
     </head>
     <body>
-        <?php require 'layouts/mininav.php'; ?>
+        <?php require_once 'layouts/mininav.php'; ?>
         <div class="content">
-            <?php require 'layouts/header.php'; ?>
+            <?php require_once 'layouts/header.php'; ?>
             <h1>Moves</h1>
                 <div class="nav">
                     <ul id="pagination">
@@ -66,6 +66,6 @@
                     </form>
                 </div>
         </div>
-        <?php require 'layouts/footer.php'; ?>
+        <?php require_once 'layouts/footer.php'; ?>
     </body>
 </html>

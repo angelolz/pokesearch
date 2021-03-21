@@ -5,12 +5,12 @@
         <title>Pokésearch | Pokémon</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/pokemon_list.css">
-        <?php require 'layouts/favicon.php'; ?>
+        <?php require_once 'layouts/favicon.php'; ?>
     </head>
     <body>
-        <?php require 'layouts/mininav.php'; ?>
+        <?php require_once 'layouts/mininav.php'; ?>
         <div class="content">
-        <?php require 'layouts/header.php'; ?>
+        <?php require_once 'layouts/header.php'; ?>
 			<span class="content-body">
                 <h1>Pokémon</h1>
                 <div class="nav">
@@ -89,6 +89,6 @@
                 </div>
             </span>
         </div>
-        <?php require 'layouts/footer.php'; ?>
+        <?php require_once 'layouts/footer.php'; ?>
     </body>
 </html>

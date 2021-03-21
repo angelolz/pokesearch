@@ -4,12 +4,12 @@
     <head>
         <title>Pokésearch | About Us</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <?php require 'layouts/favicon.php'; ?>
+        <?php require_once 'layouts/favicon.php'; ?>
     </head>
     <body>
-        <?php require 'layouts/mininav.php'; ?>
+        <?php require_once 'layouts/mininav.php'; ?>
         <div class="content">
-        <?php require 'layouts/header.php'; ?>
+        <?php require_once 'layouts/header.php'; ?>
         <span class="content-body">
             <h1>About</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in orci
@@ -39,6 +39,6 @@
                 sagittis in malesuada ac, maximus et metus.</p>
         </span>
         </div>
-        <?php require 'layouts/footer.php'; ?>
+        <?php require_once 'layouts/footer.php'; ?>
     </body>
 </html>

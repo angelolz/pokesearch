@@ -5,12 +5,12 @@
         <title>Pokésearch | Forgot Your Password</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/login.css">
-        <?php require 'layouts/favicon.php'; ?>
+        <?php require_once 'layouts/favicon.php'; ?>
     </head>
     <body>
-        <?php require 'layouts/mininav.php'; ?>
+        <?php require_once 'layouts/mininav.php'; ?>
         <div class="content">
-        <?php require 'layouts/header.php'; ?>
+        <?php require_once 'layouts/header.php'; ?>
 			<h1>Forgot your password?</h1>
             <div class="input-box">
             <p>Enter your username or email below and a password reset link will
@@ -23,6 +23,6 @@
             </form>
             </div>
         </div>
-        <?php require 'layouts/footer.php'; ?>
+        <?php require_once 'layouts/footer.php'; ?>
     </body>
 </html>

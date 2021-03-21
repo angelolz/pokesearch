@@ -5,12 +5,12 @@
         <title>Pokésearch | Profile</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/profile.css">
-        <?php require 'layouts/favicon.php'; ?>
+        <?php require_once 'layouts/favicon.php'; ?>
     </head>
     <body>
-        <?php require 'layouts/mininav.php'; ?>
+        <?php require_once 'layouts/mininav.php'; ?>
         <div class="content">
-            <?php require 'layouts/header.php'; ?>
+            <?php require_once 'layouts/header.php'; ?>
             <?php
                 if(!isset($_SESSION['authenticated']))
                 {
@@ -117,6 +117,6 @@
             </div>
         </div>
 
-        <?php require 'layouts/footer.php'; ?>
+        <?php require_once 'layouts/footer.php'; ?>
     </body>
 </html>
