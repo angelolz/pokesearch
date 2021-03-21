@@ -1,7 +1,8 @@
 <?php
     session_start();
-    require_once '../private/KLogger.php';
-    $logger = new KLogger("log.txt", KLogger::DEBUG);
+    require_once 'init.php';
+    require_once CLASSES_PATH . '/KLogger.php';
+    $logger = new KLogger(LOG_PATH . '/log.txt', KLogger::DEBUG);
 ?>
 <span class="logo">
     <a href="index.php"><img src="img/logo.png"/></a>
@@ -12,7 +13,7 @@
     {
         echo "<p id='loggedin'>Welcome, <strong>{$_SESSION['username']}</strong>!</p>";
         echo '<a href="profile.php" class="user-buttons">Profile</a>';
-        echo '<a href="php_scripts/logout.php" class="user-buttons">Logout</a>';
+        echo '<a href="logout.php" class="user-buttons">Logout</a>';
     }
 
     else

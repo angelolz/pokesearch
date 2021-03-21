@@ -1,6 +1,8 @@
 <?php
-    require_once 'DBConnection.php';
-    require_once 'KLogger.php';
+    require_once '../../init.php';
+    require_once CLASSES_PATH . '/DBConnection.php';
+    require_once CLASSES_PATH . '/KLogger.php';
+
     session_start();
 
     //get form data
@@ -12,7 +14,7 @@
     $errors = array();
 
     $dbc = new DBConnection();
-    $logger = new KLogger("../log.txt", KLogger::DEBUG);
+    $logger = new KLogger(LOG_PATH . '/log.txt', KLogger::DEBUG);
 
     //check if email is valid
     if(!filter_var($email, FILTER_VALIDATE_EMAIL))
@@ -61,7 +63,7 @@
         $_SESSION['messages'] = $errors;
         $_SESSION['class'] = "fail";
         $_SESSION['form_data'] = $_POST;
-        header('Location: ../register.php');
+        header('Location:  ../../login.php');
         exit;
     }
 
@@ -72,7 +74,7 @@
             $_SESSION['class'] = "success";
             $_SESSION['messages'] = array("You have been successfully registered! Please login below.");
             $_SESSION['form_data'] = array();
-            header('Location: ../login.php');
+            header('Location:  ../../login.php');
             exit;
         }
 
@@ -92,7 +94,7 @@
                 $_SESSION['messages'][] = "That email is already in use.";
             }
 
-            header('Location: ../register.php');
+            header('Location:  ../../login.php');
             exit;
         }
     }

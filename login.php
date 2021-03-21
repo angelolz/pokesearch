@@ -48,7 +48,7 @@
                 ?>
     			<h1>Login</h1>
                 <div class="input-box">
-                    <form method="post" action="handlers/login_handler.php">
+                    <form method="post" action="private/handlers/login_handler.php">
                         <input class="textbox" type="text" name="username" placeholder="Email/Username"/>
                         <br>
                         <input class="textbox"  type="password" name="password" placeholder="Password"/>

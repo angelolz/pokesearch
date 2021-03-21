@@ -1,5 +1,6 @@
 <?php
-require_once '../php_scripts/KLogger.php';
+    require_once '../../init.php';
+    require_once 'KLogger.php';
 
 class DBConnection
 {
@@ -7,13 +8,13 @@ class DBConnection
 
     public function __construct()
     {
-        $this->$logger = new KLogger("private/log.txt", KLogger::DEBUG);
+        $this->$logger = new KLogger(LOG_PATH . "/log.txt", KLogger::DEBUG);
     }
 
     private function getConnection()
     {
         //read db login info from file and save to array
-        $dbInfo = parse_ini_file("../etc/db.ini");
+        $dbInfo = parse_ini_file("../db.ini");
 
         //read from array
         $host = $dbInfo['host'];

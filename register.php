@@ -36,7 +36,7 @@
                 ?>
     			<h1>Register</h1>
                 <div class="input-box">
-                    <form method="post" action="handlers/register_handler.php">
+                    <form method="post" action="private/handlers/register_handler.php">
                         <input class="textbox" type="text" name="email" placeholder="Email"/>
                         <br>
                         <input class="textbox" type="text" name="username" placeholder="Username: 3-30 chars"/>
