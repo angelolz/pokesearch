@@ -1,13 +1,13 @@
 <?php
-    require_once '../handlers/DBConnection.php';
-    require_once '../php_scripts/KLogger.php';
+    require_once 'DBConnection.php';
+    require_once 'KLogger.php';
     session_start();
 
     //get form data
-    $email = $_POST['email'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $confPassword = $_POST['conf-password'];
+    $email = trim($_POST['email']);
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+    $confPassword = trim($_POST['conf-password']);
 
     $errors = array();
 
@@ -43,7 +43,7 @@
         $errors[]="Your password is too short.";
     }
 
-    else if(strlen($passsword) > 32)
+    else if(strlen($password) > 32)
     {
         $errors[]="Your password is too long.";
     }

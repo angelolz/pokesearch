@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once 'php_scripts/KLogger.php';
+    require_once '../private/KLogger.php';
     $logger = new KLogger("log.txt", KLogger::DEBUG);
 ?>
 <span class="logo">
@@ -8,7 +8,7 @@
 </span>
 <span class="userbox">
     <?php
-    if(isset($_SESSION['authenticated']) && $_SESSION['authenticated'] == true)
+    if(isset($_SESSION['authenticated']) && $_SESSION['authenticated'] == 'true')
     {
         echo "<p id='loggedin'>Welcome, <strong>{$_SESSION['username']}</strong>!</p>";
         echo '<a href="profile.php" class="user-buttons">Profile</a>';
@@ -24,8 +24,13 @@
     ?>
 </span>
 <span class="search-wrapper">
-    <form id="search" role="search"action="wip.php">
+    <form class="search" role="search" action="wip.php">
         <input type="text" id="query" placeholder="Search anything here..." name="q"></input>
+        <select id="type">
+            <option value="pokemon">Pokémon</option>
+            <option value="moves">Moves</option>
+            <option value="items">Items</option>
+        </select>
         <button id="submit"><img id="searchicon" src="img/searchicon.png"/></button>
     </form>
 </span>

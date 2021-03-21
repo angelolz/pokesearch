@@ -91,12 +91,11 @@ p {
 }
 
 /* search bar */
-.search-wrapper form
-{
+.search-wrapper form {
     margin-left: auto;
     margin-right: auto;
     height: 40px;
-    width: 50%;
+    width: 60%;
     display:flex;
     flex-direction: row;
     align-items: center;
@@ -106,9 +105,16 @@ p {
     border-width: 1.5px
 }
 
+.search-wrapper select {
+    height: 100%;
+    border-left: 2px solid black;
+    font-size:15px;
+    font-weight: bold;
+}
+
 .search-wrapper input {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 15px;
     color: black;
     background: transparent;
     height: 100%;
@@ -121,7 +127,8 @@ p {
     width: 100px;
     height: 100%;
     background-color: black;
-    border-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
     border-style: none;
 }
 

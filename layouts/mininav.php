@@ -3,8 +3,13 @@
         <a href="index.php"><img class="logo" src="img/logo.png"/></a>
     </span>
     <span class="search-wrapper">
-        <form id="search" role="search" action="wip.php">
+        <form class="search" role="search" action="wip.php">
             <input type="text" id="query" placeholder="Search anything here..." name="q"></input>
+            <select id="type">
+                <option value="pokemon">Pokémon</option>
+                <option value="moves">Moves</option>
+                <option value="items">Items</option>
+            </select>
             <button id="submit"><img id="searchicon" src="img/searchicon.png"/></button>
         </form>
     </span>
