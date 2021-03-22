@@ -3,7 +3,8 @@
 <html>
     <head>
         <title>Pokésearch | </title>
-        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/moves_list.css">
         <?php require_once 'layouts/favicon.php'; ?>
     </head>
     <body>

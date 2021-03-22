@@ -4,13 +4,13 @@
     </span>
     <span class="search-wrapper">
         <form class="search" role="search" action="wip.php">
-            <input type="text" id="query" placeholder="Search anything here..." name="q"></input>
-            <select id="type">
+            <input type="text" placeholder="Search anything here..." name="q"></input>
+            <select>
                 <option value="pokemon">Pokémon</option>
                 <option value="moves">Moves</option>
                 <option value="items">Items</option>
             </select>
-            <button id="submit"><img id="searchicon" src="img/searchicon.png"/></button>
+            <button><img id="searchicon" src="img/searchicon.png"/></button>
         </form>
     </span>
 </div>

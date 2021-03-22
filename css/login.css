@@ -33,6 +33,35 @@
     font-size: 20px;
 }
 
+.username-field, .password-field {
+  position: relative;
+  display: inline-block;
+}
+
+#username-tooltip, #password-tooltip {
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    left: 105%;
+    width: 200px;
+
+    visibility: hidden;
+    background-color: rgba(0,0,0,0.8);
+    color: #fff;
+    text-align: left;
+    border-radius: 10px;
+    padding: 2px 2px;
+}
+
+#username-tooltip ul, #password-tooltip ul {
+    margin: 5px 1px;
+    padding: 5px 5px 5px 5px;
+}
+
+#username-tooltip li, #password-tooltip li {
+    margin: 0 23px;
+}
+
 .messages {
     margin: 10px 5px;
     padding: 5px 20px;

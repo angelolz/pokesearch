@@ -39,6 +39,12 @@
         $errors[]="Your username is too long.";
     }
 
+    //check username if it meets reqs
+    if (!preg_match("/^[a-zA-Z_\-\d]+$/", $username))
+    {
+        $errors[]="Only lowercase/uppercase letters, numbers, dashes and underscores are allowed.";
+    }
+
     //check password length
     if(strlen($password) < 8)
     {
@@ -48,6 +54,27 @@
     else if(strlen($password) > 32)
     {
         $errors[]="Your password is too long.";
+    }
+
+    //check if password meets requirements
+    if(!preg_match("#[0-9]+#", $password))
+    {
+        $errors[]="Your password must contain one number!";
+    }
+
+    if(!preg_match("#[A-Z]+#", $password))
+    {
+        $errors[]="Your password must contain one uppercase letter!";
+    }
+
+    if(!preg_match("#[a-z]+#", $password))
+    {
+        $errors[]="Your password must contain one lowercase letter!";
+    }
+
+    if(!preg_match("#[^\w]#", $password))
+    {
+        $errors[]="Your password must contain one special symbol!";
     }
 
     //check if password fields match
@@ -63,7 +90,7 @@
         $_SESSION['messages'] = $errors;
         $_SESSION['class'] = "fail";
         $_SESSION['form_data'] = $_POST;
-        header('Location:  ../../login.php');
+        header('Location:  ../../register.php');
         exit;
     }
 

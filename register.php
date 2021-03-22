@@ -35,13 +35,32 @@
                     }
                 ?>
     			<h1>Register</h1>
+                <script type="text/javascript" src="js/register_tooltips.js"></script>
                 <div class="input-box">
                     <form method="post" action="private/handlers/register_handler.php">
                         <input class="textbox" type="text" name="email" placeholder="Email"/>
                         <br>
-                        <input class="textbox" type="text" name="username" placeholder="Username: 3-30 chars"/>
+                        <span class="username-field">
+                            <input class="textbox" type="text" name="username" placeholder="Username" onclick="usernameShowTip();" onblur="usernameHideTip();"/>
+                            <span id="username-tooltip">
+                                <ul>
+                                    <li>3-30 characters</li>
+                                    <li>A-Z, 0-9, -, _ are allowed</li>
+                                </ul>
+                            </span>
+                        </span>
                         <br>
-                        <input class="textbox" type="password" name="password" placeholder="Password: 8-32 chars"/>
+                        <span class="password-field">
+                            <input class="textbox" type="password" name="password" placeholder="Password" onclick="passwordShowTip();" onblur="passwordHideTip();"/>
+                            <span id="password-tooltip">
+                                <ul>
+                                    <li>8-32 characters</li>
+                                    <li>Must have one number</li>
+                                    <li>Must have one capital and lowercase letter</li>
+                                    <li>Must have one symbol</li>
+                                </ul>
+                            </span>
+                        </span>
                         <br>
                         <input class="textbox" type="password" name="conf-password" placeholder="Confirm Password"/>
                         <br>

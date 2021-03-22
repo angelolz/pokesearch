@@ -27,7 +27,7 @@
                     </ul>
                     <form>
                         <label>show</label>
-                        <select>
+                        <select id=numResults>
                             <option>25</option>
                             <option>50</option>
                             <option>100</option>
