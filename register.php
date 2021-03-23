@@ -5,6 +5,7 @@
         <title>Pokésearch | Register</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/login.css">
+        <script type="text/javascript" src="js/register_tooltips.js"></script>
         <?php require_once 'layouts/favicon.php'; ?>
     </head>
     <body>
@@ -35,7 +36,6 @@
                     }
                 ?>
     			<h1>Register</h1>
-                <script type="text/javascript" src="js/register_tooltips.js"></script>
                 <div class="input-box">
                     <form method="post" action="private/handlers/register_handler.php">
                         <input class="textbox" type="text" name="email" placeholder="Email"/>
