@@ -46,7 +46,6 @@
         {
             $_SESSION['user_id'] = $user['user_id'];
             $_SESSION['username'] = $user['username'];
-            $logger->LogInfo("auth = true");
             header('Location:  ../../login.php');
             exit;
         }

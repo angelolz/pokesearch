@@ -8,7 +8,7 @@ class DBConnection
 
     public function __construct()
     {
-        $this->$logger = new KLogger(LOG_PATH . "/log.txt", KLogger::DEBUG);
+        $this->logger = new KLogger(LOG_PATH . "/log.txt", KLogger::DEBUG);
     }
 
     private function getConnection()
@@ -26,12 +26,12 @@ class DBConnection
         {
             $db = new PDO("mysql:host={$host};dbname={$dbName}", $username, $password);
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            // $this->$logger->LogDebug("database con made!");
+            $this->logger->LogDebug("database connection made!");
         }
 
         catch (PDOException $e)
         {
-            // $this->logger->LogError("Connection failed: " . $e->getMessage());
+            $this->logger->LogError("Connection failed: " . $e->getMessage());
         }
 
         return $db;
@@ -52,7 +52,7 @@ class DBConnection
 
         catch (PDOException $e)
         {
-            // $this->$logger->LogWarn("Unable to check if email exists: " . $e-getMessage());
+            $this->$logger->LogWarn("Unable to check if email exists: " . $e-getMessage());
         }
     }
 
@@ -71,7 +71,7 @@ class DBConnection
 
         catch (PDOException $e)
         {
-            // $this->$logger->LogWarn("Unable to check if username was taken: " . $e-getMessage());
+            $this->$logger->LogWarn("Unable to check if username was taken: " . $e-getMessage());
         }
     }
 
@@ -90,13 +90,13 @@ class DBConnection
         catch (PDOException $e)
         {
             print($e->getMessage());
-            // $logger->LogWarn("Unable to register: " . $e-getMessage());
+            $logger->LogWarn("Unable to register: " . $e-getMessage());
         }
 
         catch (Exception $e)
         {
             print($e->getMessage());
-            // $logger->LogWarn("Unable to register: " . $e-getMessage());
+            $logger->LogWarn("Unable to register: " . $e-getMessage());
         }
     }
 
@@ -129,7 +129,7 @@ class DBConnection
         catch (PDOException $e)
         {
             print($e->getMessage());
-            // $this->$logger->LogWarn("Unable to check if user exists: " . $e-getMessage());
+            $this->$logger->LogWarn("Unable to check if user exists: " . $e-getMessage());
         }
     }
 }
