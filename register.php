@@ -14,7 +14,7 @@
         <?php require_once 'layouts/header.php'; ?>
 			<span class="content-body">
                 <?php
-                    if(isset($_SESSION['messages']))
+                    if(isset($_SESSION['messages']) && !empty($_SESSION['messages']))
                     {
                         echo "<div class='messages " . $_SESSION['class'] . "'>";
                         echo "<p><b>There was a problem with registering:</b></p>";

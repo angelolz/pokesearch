@@ -13,7 +13,7 @@
         <?php require_once 'layouts/header.php'; ?>
 			<span class="content-body">
                 <?php
-                if(isset($_SESSION['messages']))
+                if(isset($_SESSION['messages']) && !empty($_SESSION['messages']))
                 {
                     echo "<div class='messages " . $_SESSION['class'] . "'>";
                     if($_SESSION['class'] == "fail")
