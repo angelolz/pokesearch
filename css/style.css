@@ -184,10 +184,10 @@ p {
 
 /* footer */
 .footer {
-    position: fixed;
+    /* position: fixed;
     left: 0;
     bottom: 0;
-    width: 100%;
+    width: 100%; */
     clear: both;
     padding: 10px;
     background-color: #404040;
@@ -242,4 +242,36 @@ p {
 #mininav .search-wrapper form{
     margin:auto;
     width: 90%;
+}
+
+/* error/success messages */
+.messages {
+    margin: 10px 5px;
+    padding: 5px 20px;
+    border-radius: 30px;
+}
+
+.messages p {
+    text-align: left;
+    line-height: 5px;
+    margin-bottom: 0px;
+}
+
+.success {
+    background-color: #90EE90;
+    border: 2px solid #228B22;
+    text-align: center;
+}
+
+.fail {
+    background-color: #F08080;
+    border: 2px solid #FF0000;
+}
+
+/* screen size rules */
+@media screen and (max-width:860px) {
+    .content {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
