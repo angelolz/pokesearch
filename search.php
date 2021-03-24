@@ -1,8 +1,6 @@
 <?php
 require 'init.php';
-require CLASSES_PATH . "/FuzzySearch.php";
 require CLASSES_PATH . "/KLogger.php";
-use FuzzySearch\FuzzySearch;
 
 $logger = new KLogger(LOG_PATH . '/log.txt', KLogger::DEBUG);
 ?>
