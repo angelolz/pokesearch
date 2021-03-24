@@ -184,6 +184,10 @@ p {
 
 /* footer */
 .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     clear: both;
     padding: 10px;
     background-color: #404040;
