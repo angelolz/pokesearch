@@ -27,7 +27,7 @@
 <span class="search-wrapper">
     <form class="search" role="search" action="search.php">
         <input type="text" placeholder="Search anything here..." name="q"></input>
-        <select >
+        <select name="type">
             <option value="pokemon">Pokémon</option>
             <option value="moves">Moves</option>
             <option value="items">Items</option>
