@@ -1,0 +1,49 @@
+form {
+    margin: auto;
+}
+
+.list {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.list a {
+    text-decoration: none;
+    color: black;
+}
+
+.list a:hover {
+    text-decoration: underline;
+}
+
+.item {
+    min-width: 185px;
+    margin: 15px 5px;
+    text-align: center;
+}
+
+.item a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 40px;
+    background-color: black;
+}
+
+.icon img {
+    width: 48px;
+    height: 48px;
+    border: 2px solid grey;
+    background-color: white;
+    margin: 3px 3px;
+    border-radius: 40px;
+    padding: 2px;
+}
+
+.info {
+    margin-right: 7px;
+    line-height: 5px;
+    color: white;
+}
