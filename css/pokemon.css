@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .nav a {
@@ -20,10 +20,16 @@
 
 .nav #prev {
     margin-right: 10px;
+    flex-grow: 1;
 }
 
 .nav #next {
     margin-left: 10px;
+    /* flex-basis: auto; */
+}
+
+.current-pokemon {
+    flex-grow: 1;
 }
 
 .current-pokemon h2 {
@@ -204,4 +210,10 @@
 .spd {
     width: 50%;
     background-color: #FA92B2;
+}
+
+
+/* others */
+.hidden {
+    visibility: hidden;
 }
