@@ -39,10 +39,10 @@
 <span class="navbar">
     <ul>
         <li><a href="pokemon_list.php">Pokémon</a></li>
-        <li><a href="moves.php">Moves</a></li>
-        <li><a href="wip.php">Games</a></li>
-        <li><a href="wip.php">Items</a></li>
-        <li id="last"><a href="wip.php">Regions</a></li>
+        <li><a href="moves_list.php">Moves</a></li>
+        <!-- <li><a href="wip.php">Games</a></li> -->
+        <li id="last"><a href="items_list.php">Items</a></li>
+        <!-- <li id="last"><a href="wip.php">Regions</a></li> -->
     </ul>
 </span>
 <hr>
