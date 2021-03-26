@@ -1,6 +1,9 @@
 <?php
 require_once 'init.php';
+require_once CLASSES_PATH . "/KLogger.php";
 require_once FUNCTIONS_PATH . "/createPagination.php";
+
+$logger = new KLogger(LOG_PATH . "/log.txt", KLogger::DEBUG);
 ?>
 
 <html>
@@ -39,35 +42,40 @@ require_once FUNCTIONS_PATH . "/createPagination.php";
                     $rpp = 25;
                 }
 
-                $moveList = file_get_contents(sprintf("https://pokeapi.co/api/v2/move?offset=%u&limit=%u", (($page - 1) * $rpp), $rpp));
-                $moveList = json_decode($moveList);
-                $maxPages = ceil($moveList->count / $rpp);
+                //get the list of moves and how many pages there should be based on rpp
+                $list = file_get_contents(sprintf("https://pokeapi.co/api/v2/move?offset=%u&limit=%u", (($page - 1) * $rpp), $rpp));
+                $list = json_decode($list);
+                $maxPages = ceil($list->count / $rpp);
                 ?>
+
                 <h1>Moves</h1>
-                <div class="nav">
-                    <?php createPagination($page, $rpp, $maxPages, $moveList->count, array(30,60,90)); ?>
-                </div>
-                <div class="list">
-                    <?php
-                        if(count($moveList->results) == 0)
-                        {
-                            echo '<h3>No results found!</h3>';
-                        }
 
-                        for($i = 1; $i <= count($moveList->results); $i++)
-                        {
-                            $name = ucwords(str_replace("-", " ", $moveList->results[($i - 1)]->name));
-                            $no = $i + (($page - 1) * $rpp);
+                <?php
+                //if cache exists, load cache
+                include FUNCTIONS_PATH . '/cacheListingStart.php';
 
-                            echo '<div class="move">';
-                            echo '<a href="item.php?id=' . $no .'"><p>' . $name . '</p></a>';
-                            echo '</div>';
-                        }
-                    ?>
-                </div>
-                <div class="nav">
-                    <?php createPagination($page, $rpp, $maxPages, $moveList->count, array(30,60,90)); ?>
-                </div>
+                //else, prepare cache if there are results
+                createPagination($page, $rpp, $maxPages, $list->count, array(30,60,90));
+                echo '<div class="list">';
+                if(count($list->results) == 0)
+                {
+                    echo '<h3>No results found!</h3>';
+                }
+
+                for($i = 1; $i <= count($list->results); $i++)
+                {
+                    $name = ucwords(str_replace("-", " ", $list->results[($i - 1)]->name));
+                    $no = $i + (($page - 1) * $rpp);
+
+                    echo '<div class="move">';
+                    echo '<a href="item.php?id=' . $no .'"><p>' . $name . '</p></a>';
+                    echo '</div>';
+                }
+                echo '</div>';
+                createPagination($page, $rpp, $maxPages, $list->count, array(30,60,90));
+
+                include FUNCTIONS_PATH . '/cacheListingEnd.php';
+                ?>
             </span>
         </div>
         <?php require_once 'layouts/footer.php'; ?>

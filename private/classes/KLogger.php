@@ -31,7 +31,7 @@
 
 		/* Public members: Not so much of an example of encapsulation, but that's okay. */
 		public $Log_Status 	= KLogger::LOG_CLOSED;
-		public $DateFormat	= "Y-m-d G:i:s";
+		public $DateFormat	= "m/d/Y g:i:s A";
 		public $MessageQueue;
 
 		private $log_file;
@@ -123,6 +123,7 @@
 
 		private function getTimeLine( $level )
 		{
+			date_default_timezone_set('America/Denver');
 			$time = date( $this->DateFormat );
 
 			switch( $level )

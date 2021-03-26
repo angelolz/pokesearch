@@ -39,43 +39,48 @@ require_once FUNCTIONS_PATH . "/createPagination.php";
                     $rpp = 25;
                 }
 
-                $itemList = file_get_contents(sprintf("https://pokeapi.co/api/v2/item?offset=%u&limit=%u", (($page - 1) * $rpp), $rpp));
-                $itemList = json_decode($itemList);
-                $maxPages = ceil($itemList->count / $rpp);
+                //get the list of moves and how many pages there should be based on rpp
+                $list = file_get_contents(sprintf("https://pokeapi.co/api/v2/item?offset=%u&limit=%u", (($page - 1) * $rpp), $rpp));
+                $list = json_decode($list);
+                $maxPages = ceil($list->count / $rpp);
                 ?>
+
                 <h1>Items</h1>
-                <div class="nav">
-                    <?php createPagination($page, $rpp, $maxPages, $itemList->count, array(25,50,100)); ?>
-                </div>
-                <div class="list">
-                    <?php
-                        if(count($itemList->results) == 0)
-                        {
-                            echo '<h3>No results found!</h3>';
-                        }
 
-                        for($i = 1; $i <= count($itemList->results); $i++)
-                        {
-                            $name = ucwords(str_replace("-", " ", $itemList->results[($i - 1)]->name));
-                            $no = $i + (($page - 1) * $rpp);
-                            $img = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/" . $itemList->results[($i - 1)]->name . ".png";
+                <?php
+                //if cache exists, load cache
+                include FUNCTIONS_PATH . '/cacheListingStart.php';
 
-                            echo '<span class="item">';
-                            echo '<a href="item.php?id=' . $no .'">';
-                            echo '<span class="icon">';
-                            echo '<img src="' . $img . '"/>';
-                            echo '</span>';
-                            echo '<span class="info">';
-                            echo "<h3>{$name}</h3>";
-                            echo '</span>';
-                            echo '</a>';
-                            echo '</span>';
-                        }
-                    ?>
-                </div>
-                <div class="nav">
-                    <?php createPagination($page, $rpp, $maxPages, $itemList->count, array(25,50,100)); ?>
-                </div>
+                //else, prepare cache if there are results
+                createPagination($page, $rpp, $maxPages, $list->count, array(25,50,100));
+                echo '<div class="list">';
+                if(count($list->results) == 0)
+                {
+                    echo '<h3>No results found!</h3>';
+                }
+
+                for($i = 1; $i <= count($list->results); $i++)
+                {
+                    $name = ucwords(str_replace("-", " ", $list->results[($i - 1)]->name));
+                    $no = $i + (($page - 1) * $rpp);
+                    $img = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/" . $list->results[($i - 1)]->name . ".png";
+
+                    echo '<span class="item">';
+                    echo '<a href="item.php?id=' . $no .'">';
+                    echo '<span class="icon">';
+                    echo '<img src="' . $img . '"/>';
+                    echo '</span>';
+                    echo '<span class="info">';
+                    echo "<h3>{$name}</h3>";
+                    echo '</span>';
+                    echo '</a>';
+                    echo '</span>';
+                }
+                echo '</div>';
+                createPagination($page, $rpp, $maxPages, $list->count, array(25,50,100));
+
+                include FUNCTIONS_PATH . '/cacheListingEnd.php';
+                ?>
             </span>
         </div>
         <?php require_once 'layouts/footer.php'; ?>

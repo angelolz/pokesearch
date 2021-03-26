@@ -1,2 +1,3 @@
 *.txt
-private/test.php
+/private/test.php
+/cache
