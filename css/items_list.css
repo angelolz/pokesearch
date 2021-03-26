@@ -19,7 +19,8 @@ form {
 }
 
 .item {
-    min-width: 185px;
+    max-width: 300px;
+    min-width: 200px;
     margin: 15px 5px;
     text-align: center;
 }

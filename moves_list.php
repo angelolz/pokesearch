@@ -68,7 +68,7 @@ $logger = new KLogger(LOG_PATH . "/log.txt", KLogger::DEBUG);
                     $no = $i + (($page - 1) * $rpp);
 
                     echo '<div class="move">';
-                    echo '<a href="item.php?id=' . $no .'"><p>' . $name . '</p></a>';
+                    echo '<a href="move.php?id=' . $no .'"><p>' . $name . '</p></a>';
                     echo '</div>';
                 }
                 echo '</div>';

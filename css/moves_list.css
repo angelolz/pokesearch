@@ -39,14 +39,15 @@ form {
 /* individual move */
 .move {
     min-width: 200px;
+    max-width: 300px;
     color: white;
     background-color: black;
-    height: 30px;
+    min-height: 30px;
     border-radius: 30px;
     margin: 5px 5px;
     padding: 10px 10px;
     text-align: center;
-    vertical-align: middle;
+
 }
 
 .move a {
@@ -60,4 +61,5 @@ form {
 
 .move p {
     display: inline;
+    vertical-align: middle;
 }

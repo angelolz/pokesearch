@@ -27,6 +27,7 @@ form {
     width: 120px;
     height: 120px;
     border: 2px solid grey;
+    border-radius: 30px;
     padding: 10px;
 }
 

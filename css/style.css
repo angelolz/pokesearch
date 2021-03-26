@@ -43,13 +43,13 @@ p {
     justify-content: center;
 }
 
-.userbox p {
+.not-loggedin {
     font-weight: bold;
     color: red;
     margin-right: 5px;
 }
 
-.userbox #loggedin {
+.loggedin {
     font-weight: normal;
     color: black;
     margin-right: 5px;
@@ -80,7 +80,7 @@ p {
 
 .content {
     flex: 1;
-    max-width: 800px;
+    max-width: 1200px;
     min-width: 400px;
     margin-left: auto;
     margin-right: auto;
@@ -214,6 +214,7 @@ p {
     line-height: 5px;
 }
 
+/* small mini navbar */
 #mininav {
     background-color: #faf3f2;
     display: flex;
@@ -233,12 +234,39 @@ p {
 }
 
 #mininav .search-wrapper {
+    min-width: 350px;
     flex-grow: 1;
 }
 
 #mininav .search-wrapper form{
     margin:auto;
     width: 90%;
+}
+
+#mininav .userbox {
+    flex-direction: column;
+    margin: 0 20px;
+}
+#mininav .userbox p{
+    margin: 0 2px;
+}
+
+.mini-button-group {
+    display: flex;
+    flex-direction: row;
+}
+
+.mini-user-buttons {
+    width: 90px;
+    padding: 5px 5px;
+    margin: 2px 2px;
+    color:white;
+    background-color: black;
+    border-style: none;
+    border-radius: 30px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 /* error/success messages */
@@ -266,7 +294,7 @@ p {
 }
 
 /* screen size rules */
-@media screen and (max-width:860px) {
+@media screen and (max-width:1280px) {
     .content {
         margin-left: 10px;
         margin-right: 10px;
