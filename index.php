@@ -19,6 +19,10 @@
 				specific stuff about the Pokémon games, items and so much more!</p>
 			<p>To start, click on one of the links above or type in whatever you're
 				looking for in the search bar!</p>
+                <p><i><b>Note:</b></i></p>
+                <p><i>This site is still in development. This site will
+                    continue to be updated as time goes on. There are still a lot of missing
+                    info that is planned to be inserted. Please keep checking for updates!</i></p>
 			</span>
         </div>
         <?php require_once 'layouts/footer.php'; ?>
