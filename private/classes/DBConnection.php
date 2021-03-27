@@ -13,15 +13,22 @@ class DBConnection
 
     private function getConnection()
     {
-        //read db login info from file and save to array
-        $dbInfo = parse_ini_file("../db.ini");
+        // vvvv FOR USE IN NON-HEROKU PRODUCTION vvvvv
+        // //read db login info from file and save to array
+        // $dbInfo = parse_ini_file("../db.ini");
+        //
+        // //read from array
+        // $host = $dbInfo['host'];
+        // $username = $dbInfo['username'];
+        // $password = $dbInfo['password'];
+        // $dbName = $dbInfo['name'];
 
-        //read from array
-        $host = $dbInfo['host'];
-        $username = $dbInfo['username'];
-        $password = $dbInfo['password'];
-        $dbName = $dbInfo['name'];
-
+        //heroku config var
+        $host = getenv("HOST");
+        $username = getenv("USERNAME");
+        $password = getenv("PASSWORD");
+        $dbName = getenv("DBNAME");
+        
         try
         {
             $db = new PDO("mysql:host={$host};dbname={$dbName}", $username, $password);
