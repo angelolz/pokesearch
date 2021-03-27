@@ -34,11 +34,11 @@
     /* flex-basis: auto; */
 }
 
-.current-pokemon {
+.current-item {
     flex-grow: 1;
 }
 
-.current-pokemon h2 {
+.current-item h2 {
     margin-top:-15px;
 }
 
@@ -48,7 +48,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 .image {
@@ -63,42 +63,6 @@
 .image img {
     width: 100%;
     height: 100%;
-}
-
-.grid {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    height: 40px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.select p {
-    display: inline;
-    text-align: right;
-    margin-right: 10px;
-}
-
-.grid button {
-    height: 40px;
-    width: 120px;
-    border-radius: 30px;
-    font-size: 20px;
-    font-weight: bold;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-.grid .active {
-    color: white;
-    background-color: black;
-}
-
-.grid .inactive {
-    border: 2px solid black;
-    color: black;
-    background-color: transparent;
 }
 
 .info {
@@ -162,42 +126,84 @@
     margin-bottom: 0px;
 }
 
-.bar {
-    width: 100%;
-    border: 2px solid black;
-    margin: 2px 0px;
-    border-radius: 30px;
+.stat-list {
+    display:flex;
+    flex-direction: column;
+    margin: 2px 0;
 }
 
-.bar p {
-    margin-top: 5px;
-    margin-bottom: 5px;
+.stat-list .stat {
+    margin: 5px 10px;
 }
-
-/* bar stats */
-#third {
-    box-sizing: border-box;
-}
-
-.col .bar #third {
-    background-color: #ddd;
-}
-
-.stattext {
-    padding: 7px 10px;
-    color: white;
-    border-radius: 30px;
+.stat-list .name {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    background-color: black;
+    color:white;
+    text-align: center;
     font-weight: bold;
-    font-size: 15px;
-    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+    min-width: 254px;
 }
 
-#hp {min-width: 100px; max-width: 100%; background-color: #FF5959;}
-#attack {min-width: 100px; max-width: 100%; background-color: #F5AC78;}
-#defense {min-width: 100px; max-width: 100%; background-color: #FAE078;}
-#special-attack {min-width: 100px; max-width: 100%; background-color: #9DB7F5;}
-#special-defense {min-width: 100px; max-width: 100%; background-color: #A7DB8D;}
-#speed {min-width: 100px; max-width: 100%; background-color: #FA92B2;}
+.stat-list .name h3 {
+    margin: 5px 0px;
+}
+
+.stat-list .list {
+    border: 2px solid black;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    min-width: 250px;
+}
+
+.stat-list .list p {
+    margin-top: 5px;
+}
+
+#right {
+    flex-grow: 1;
+}
+
+.pkmn-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    border: 2px solid black;
+    border-radius: 30px;
+}
+
+.pkmn-list a {
+    text-decoration: none;
+    color: black;
+}
+
+.pkmn-list a:hover {
+    text-decoration: underline;
+}
+
+.pokemon {
+    margin: 15px 10px;
+    text-align: center;
+}
+
+.pokemon .icon img {
+    width: 84px;
+    height: 84px;
+    border: 2px solid grey;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.pokemon .info {
+    flex-direction: column;
+}
+
+.pokemon .info h3 {
+    flex-direction: column;
+    margin: 2px 0;
+}
+
 
 /* others */
 .hidden {
