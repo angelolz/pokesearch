@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <span class="logo">
     <a href="index.php"><img src="img/logo.png"/></a>
 </span>
