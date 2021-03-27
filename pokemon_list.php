@@ -52,34 +52,37 @@ require_once FUNCTIONS_PATH . "/createPagination.php";
                 include FUNCTIONS_PATH . '/cacheListingStart.php';
 
                 //else, prepare cache if there are results
-                createPagination($page, $rpp, $maxPages, $list->count, array(25,50,100));
-                echo '<div class="list">';
-                if(count($list->results) == 0)
+                if(!$cache)
                 {
-                    echo '<h3>No results found!</h3>';
-                }
-                for($i = 1; $i <= count($list->results); $i++)
-                {
-                    $name = ucfirst($list->results[($i - 1)]->name);
-                    $no = $i + (($page - 1) * $rpp);
-                    $img = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" . $no . ".png";
+                    createPagination($page, $rpp, $maxPages, $list->count, array(25,50,100));
+                    echo '<div class="list">';
+                    if(count($list->results) == 0)
+                    {
+                        echo '<h3>No results found!</h3>';
+                    }
+                    for($i = 1; $i <= count($list->results); $i++)
+                    {
+                        $name = ucfirst($list->results[($i - 1)]->name);
+                        $no = $i + (($page - 1) * $rpp);
+                        $img = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" . $no . ".png";
 
-                    echo '<span class="pokemon">';
-                    echo '<a href="pokemon.php?id=' . $no .'">';
-                    echo '<span class="icon">';
-                    echo '<img src="' . $img . '"/>';
-                    echo '</span>';
-                    echo '<span class="info">';
-                    echo "<h3>{$name}</h3>";
-                    echo "<h3>#{$no}</h3>";
-                    echo '</span>';
-                    echo '</a>';
-                    echo '</span>';
-                }
-                echo '</div>';
-                createPagination($page, $rpp, $maxPages, $list->count, array(25,50,100));
+                        echo '<span class="pokemon">';
+                        echo '<a href="pokemon.php?id=' . $no .'">';
+                        echo '<span class="icon">';
+                        echo '<img src="' . $img . '"/>';
+                        echo '</span>';
+                        echo '<span class="info">';
+                        echo "<h3>{$name}</h3>";
+                        echo "<h3>#{$no}</h3>";
+                        echo '</span>';
+                        echo '</a>';
+                        echo '</span>';
+                    }
+                    echo '</div>';
+                    createPagination($page, $rpp, $maxPages, $list->count, array(25,50,100));
 
-                include FUNCTIONS_PATH . '/cacheListingEnd.php';
+                    include FUNCTIONS_PATH . '/cacheEnd.php';
+                }
                 ?>
             </span>
         </div>

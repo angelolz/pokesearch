@@ -55,26 +55,29 @@ $logger = new KLogger(LOG_PATH . "/log.txt", KLogger::DEBUG);
                 include FUNCTIONS_PATH . '/cacheListingStart.php';
 
                 //else, prepare cache if there are results
-                createPagination($page, $rpp, $maxPages, $list->count, array(30,60,90));
-                echo '<div class="list">';
-                if(count($list->results) == 0)
+                if(!$cache)
                 {
-                    echo '<h3>No results found!</h3>';
-                }
+                    createPagination($page, $rpp, $maxPages, $list->count, array(30,60,90));
+                    echo '<div class="list">';
+                    if(count($list->results) == 0)
+                    {
+                        echo '<h3>No results found!</h3>';
+                    }
 
-                for($i = 1; $i <= count($list->results); $i++)
-                {
-                    $name = ucwords(str_replace("-", " ", $list->results[($i - 1)]->name));
-                    $no = $i + (($page - 1) * $rpp);
+                    for($i = 1; $i <= count($list->results); $i++)
+                    {
+                        $name = ucwords(str_replace("-", " ", $list->results[($i - 1)]->name));
+                        $no = $i + (($page - 1) * $rpp);
 
-                    echo '<div class="move">';
-                    echo '<a href="move.php?id=' . $no .'"><p>' . $name . '</p></a>';
+                        echo '<div class="move">';
+                        echo '<a href="move.php?id=' . $no .'"><p>' . $name . '</p></a>';
+                        echo '</div>';
+                    }
                     echo '</div>';
-                }
-                echo '</div>';
-                createPagination($page, $rpp, $maxPages, $list->count, array(30,60,90));
+                    createPagination($page, $rpp, $maxPages, $list->count, array(30,60,90));
 
-                include FUNCTIONS_PATH . '/cacheListingEnd.php';
+                    include FUNCTIONS_PATH . '/cacheEnd.php';
+                }
                 ?>
             </span>
         </div>

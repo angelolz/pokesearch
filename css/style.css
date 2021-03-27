@@ -82,6 +82,7 @@ p {
     flex: 1;
     max-width: 1200px;
     min-width: 400px;
+    min-height: 640px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;

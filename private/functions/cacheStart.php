@@ -11,7 +11,7 @@ if(file_exists($cacheFile) && time()-$cacheTime <= filemtime($cacheFile))
     echo "<!-- Cached copy, generated ".date('H:i', filemtime($cacheFile))." -->\n";
     echo $c;
 
-    exit;
+    $cache = true;
 }
 
 $startedCache = ob_start();

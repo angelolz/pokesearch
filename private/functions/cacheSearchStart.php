@@ -1,5 +1,5 @@
 <?php
-$cacheFile = sprintf("%s/%s,page=%u,rpp=%u.cache", CACHE_PATH, basename($_SERVER['PHP_SELF'], ".php"), $page, $rpp);
+$cacheFile = sprintf("%s/%s,search=%s,type=%s.cache", CACHE_PATH, basename($_SERVER['PHP_SELF'], ".php"), strtolower($_GET['q']), $_GET['type']);
 $cacheTime = 3600; //1 hour
 $cache = false;
 $start = round(microtime(true) * 1000);
