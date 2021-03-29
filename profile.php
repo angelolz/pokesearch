@@ -123,28 +123,36 @@ else
 
                         echo '</span>';
                         echo '</div>';
+
                         echo '<div class="sidebar right">';
 
                         $queryTeam = getTeam($teamId);
-
-                        if(count($queryTeam) == 0)
+                        if(count($teams) == 0)
                         {
-                            $teamId = $teams[0]['team_id'];
+                            echo "<h3>You don't have a team yet, create one at the left sidebar!</h3>";
                         }
 
-                        else if($queryTeam[0]['owner'] != $_SESSION['user_id'])
+                        else
                         {
-                            $teamId = $teams[0]['team_id'];
-                        }
+                            if(count($queryTeam) == 0)
+                            {
+                                $teamId = $teams[0]['team_id'];
+                            }
 
-                        $currentTeam = getTeam($teamId);
+                            else if($queryTeam[0]['owner'] != $_SESSION['user_id'])
+                            {
+                                $teamId = $teams[0]['team_id'];
+                            }
 
-                        echo '<h1>' . $currentTeam[0]['team_name'] . '</h1>';
-                        $pokemonTeam = getPokemon($teamId);
+                            $currentTeam = getTeam($teamId);
 
-                        if(count($pokemonTeam) < 6)
-                        {
-                            echo '<button id="addPokemon">+ Add Pokemon</button>';
+                            echo '<h1>' . $currentTeam[0]['team_name'] . '</h1>';
+                            $pokemonTeam = getPokemon($teamId);
+
+                            if(count($pokemonTeam) < 6)
+                            {
+                                echo '<button id="addPokemon">+ Add Pokemon</button>';
+                            }
                         }
 
                         ?>
@@ -165,54 +173,57 @@ else
                         </div>
 
                         <?php
-                        if(count($pokemonTeam) == 0)
+                        if(!count($teams) == 0)
                         {
-                            echo "<p>There are no Pokémon in this team!
-                                  Use the button above to add one!</p>";
-                        }
-
-                        else
-                        {
-                            foreach($pokemonTeam as $pokemon)
+                            if(count($pokemonTeam) == 0)
                             {
-                                $pkmnJson = json_decode(file_get_contents("https://pokeapi.co/api/v2/pokemon/" . strtolower($pokemon['pokemon_name'])));
-                                $pkmnSpJson = json_decode(file_get_contents("https://pokeapi.co/api/v2/pokemon-species/" . strtolower($pokemon['pokemon_name'])));
-                                echo '<div class="pokemon">';
-                                echo '<div class="lefthalf">';
-                                echo '<span class="icon">';
-                                echo sprintf('<a href="pokemon.php?id=%u"><img src="%s"/></a>', $pkmnSpJson->id, $pkmnJson->sprites->front_default);
-                                echo '</span>';
-                                echo '<span class="manage">';
-                                // echo '<a href=""><img src="img/edit.png"/></a>';
-                                // echo '<a href=""><img src="img/delete.png"/></a>';
-                                echo '</span>';
-                                echo '</div>';
-                                echo '<div class="righthalf">';
-                                echo '<span class="info">';
-                                echo sprintf('<a href="pokemon.php?id=%u"><h2>%s</h2></a>', $pkmnSpJson->id, ucfirst($pkmnJson->name));
-                                echo '</span>';
-                                echo '<div class="moveset">';
-                                $moveset = getMoveSet($pokemon['moveset_id']);
-                                $logger->LogDebug(print_r($moveset, true));
-                                for($i = 1; $i <= 4; $i++)
+                                echo "<p>There are no Pokémon in this team!
+                                      Use the button above to add one!</p>";
+                            }
+
+                            else
+                            {
+                                foreach($pokemonTeam as $pokemon)
                                 {
-                                    if(!empty($moveset[0]["move" . $i]))
+                                    $pkmnJson = json_decode(file_get_contents("https://pokeapi.co/api/v2/pokemon/" . strtolower($pokemon['pokemon_name'])));
+                                    $pkmnSpJson = json_decode(file_get_contents("https://pokeapi.co/api/v2/pokemon-species/" . strtolower($pokemon['pokemon_name'])));
+                                    echo '<div class="pokemon">';
+                                    echo '<div class="lefthalf">';
+                                    echo '<span class="icon">';
+                                    echo sprintf('<a href="pokemon.php?id=%u"><img src="%s"/></a>', $pkmnSpJson->id, $pkmnJson->sprites->front_default);
+                                    echo '</span>';
+                                    echo '<span class="manage">';
+                                    // echo '<a href=""><img src="img/edit.png"/></a>';
+                                    // echo '<a href=""><img src="img/delete.png"/></a>';
+                                    echo '</span>';
+                                    echo '</div>';
+                                    echo '<div class="righthalf">';
+                                    echo '<span class="info">';
+                                    echo sprintf('<a href="pokemon.php?id=%u"><h2>%s</h2></a>', $pkmnSpJson->id, ucfirst($pkmnJson->name));
+                                    echo '</span>';
+                                    echo '<div class="moveset">';
+                                    $moveset = getMoveSet($pokemon['moveset_id']);
+                                    $logger->LogDebug(print_r($moveset, true));
+                                    for($i = 1; $i <= 4; $i++)
                                     {
-                                        $moveJson = json_decode(file_get_contents("https://pokeapi.co/api/v2/move/" . strtolower($moveset[0]["move" . $i])));
-                                        $id = $moveJson->id;
-                                        $name = ucwords(str_replace("-", " ", $moveJson->name));
+                                        if(!empty($moveset[0]["move" . $i]))
+                                        {
+                                            $moveJson = json_decode(file_get_contents("https://pokeapi.co/api/v2/move/" . str_replace(" ", "-", strtolower($moveset[0]["move" . $i]))));
+                                            $id = $moveJson->id;
+                                            $name = ucwords(str_replace("-", " ", $moveJson->name));
 
-                                        echo sprintf('<a href="move.php?id=%u"><button>%s</button></a>', $id, $name);
-                                    }
+                                            echo sprintf('<a href="move.php?id=%u"><button>%s</button></a>', $id, $name);
+                                        }
 
-                                    else
-                                    {
-                                        echo '<button>--</button>';
+                                        else
+                                        {
+                                            echo '<button>--</button>';
+                                        }
                                     }
+                                    echo '</div>';
+                                    echo '</div>';
+                                    echo '</div>';
                                 }
-                                echo '</div>';
-                                echo '</div>';
-                                echo '</div>';
                             }
                         }
                     ?>
