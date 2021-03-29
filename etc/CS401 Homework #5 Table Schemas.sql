@@ -51,17 +51,3 @@ CREATE TABLE Moves (
     move4 VARCHAR(25),
     PRIMARY KEY (moveset_id)
 );
-
-/*
-	- This table holds information of what teams are inside of a folder that a
-	user has created.
-    - The team_id help create a link to what teams are supposed to be in this folder.
-*/
-CREATE TABLE Folder (
-	folder_id int NOT NULL AUTO_INCREMENT,
-    name varchar(20) NOT NULL,
-    owner int NOT NULL,
-    team_id int NOT NULL,
-    PRIMARY KEY (folder_id),
-    FOREIGN KEY (team_id) REFERENCES Team(team_id)
-);
