@@ -54,7 +54,7 @@ $moveInfo = json_decode($moveInfo);
 
                     else
                     {
-                        echo sprintf('<a href="%s?id=%u"><p id="prev">← %s</p></a>', $_SERVER['PHP_SELF'], ($id - 1), ucfirst($moves->results[0]->name));
+                        echo sprintf('<a href="%s?id=%u"><p id="prev">← %s</p></a>', $_SERVER['PHP_SELF'], ($id - 1), ucwords(str_replace("-", " ", $moves->results[0]->name)));
                     }
 
                     echo '<span class="current-item">';
@@ -71,12 +71,12 @@ $moveInfo = json_decode($moveInfo);
                     {
                         if($id == 1)
                         {
-                            echo sprintf('<a href="%s?id=%u"><p id="next">%s →</p></a>', $_SERVER['PHP_SELF'], ($id + 1), ucfirst($moves->results[1]->name));
+                            echo sprintf('<a href="%s?id=%u"><p id="next">%s →</p></a>', $_SERVER['PHP_SELF'], ($id + 1), ucwords(str_replace("-", " ", $moves->results[1]->name)));
                         }
 
                         else
                         {
-                            echo sprintf('<a href="%s?id=%u"><p id="next">%s →</p></a>', $_SERVER['PHP_SELF'], ($id + 1), ucfirst($moves->results[2]->name));
+                            echo sprintf('<a href="%s?id=%u"><p id="next">%s →</p></a>', $_SERVER['PHP_SELF'], ($id + 1), ucwords(str_replace("-", " ", $moves->results[2]->name)));
                         }
                     }
                     echo '</div>';
@@ -169,8 +169,11 @@ $moveInfo = json_decode($moveInfo);
                     else
                     {
                         echo '<span class="pkmn-list">';
-                        foreach($moveInfo->learned_by_pokemon as $pokemon)
+                        $itemsToShow = count($moveInfo->learned_by_pokemon) > 20 ? 20 : count($moveInfo->learned_by_pokemon);
+
+                        for($i = 0; $i < $itemsToShow; $i++)
                         {
+                            $pokemon = $moveInfo->learned_by_pokemon[$i];
                             $pkmnPage = json_decode(file_get_contents($pokemon->url));
                             $pkmnSpPage = json_decode(file_get_contents($pkmnPage->species->url));
 
@@ -185,6 +188,11 @@ $moveInfo = json_decode($moveInfo);
                             echo '</span>';
                             echo '</a>';
                             echo '</div>';
+                        }
+                        
+                        if($itemsToShow)
+                        {
+                            echo sprintf('<p><i>and %u more...</i></p>', count($moveInfo->learned_by_pokemon) - 20);
                         }
                         echo '</span>';
                     }

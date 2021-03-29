@@ -103,19 +103,28 @@ $itemInfo = json_decode($itemInfo);
                     echo '<div class="stat-list">';
                     echo '<span class="name"><h3>Attributes</h3></span>';
                     echo '<span class="list">';
-                    foreach($itemInfo->attributes as $attribute)
+                    if(count($itemInfo->attributes) == 0)
                     {
-                        echo '<h2>' . ucwords(str_replace("-", " ", $attribute->name) . "</h2>");
+                        echo '<p>No attributes.</p>';
+                    }
 
-                        $attrPage = json_decode(file_get_contents($attribute->url));
-                        foreach($attrPage->descriptions as $description)
+                    else
+                    {
+                        foreach($itemInfo->attributes as $attribute)
                         {
-                            if($description->language->name == "en")
+                            echo '<h2>' . ucwords(str_replace("-", " ", $attribute->name) . "</h2>");
+
+                            $attrPage = json_decode(file_get_contents($attribute->url));
+                            foreach($attrPage->descriptions as $description)
                             {
-                                echo '<p>' . $description->description . '.</p>';
+                                if($description->language->name == "en")
+                                {
+                                    echo '<p>' . $description->description . '.</p>';
+                                }
                             }
                         }
                     }
+
                     echo '</span>';
                     echo '</div>';
                     echo '<div class="stat-list">';
