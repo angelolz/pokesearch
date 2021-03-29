@@ -13,21 +13,27 @@ class DBConnection
 
     public function getConnection()
     {
-        // vvvv FOR USE IN NON-HEROKU PRODUCTION vvvvv
-        //read db login info from file and save to array
-        $dbInfo = parse_ini_file(PRIVATE_PATH . "/db.ini");
+        //if in heroku
+        if(getenv("HEROKU") == 1)
+        {
+            $host = getenv("HOST");
+            $username = getenv("USERNAME");
+            $password = getenv("PASSWORD");
+            $dbName = getenv("DBNAME");
+        }
 
-        //read from array
-        $host = $dbInfo['host'];
-        $username = $dbInfo['username'];
-        $password = $dbInfo['password'];
-        $dbName = $dbInfo['name'];
+        //if not in heroku
+        else
+        {
+            $dbInfo = parse_ini_file(PRIVATE_PATH . "/db.ini");
 
-        //heroku config var
-        // $host = getenv("HOST");
-        // $username = getenv("USERNAME");
-        // $password = getenv("PASSWORD");
-        // $dbName = getenv("DBNAME");
+            //read from array
+            $host = $dbInfo['host'];
+            $username = $dbInfo['username'];
+            $password = $dbInfo['password'];
+            $dbName = $dbInfo['name'];
+        }
+
 
         try
         {
