@@ -198,8 +198,3 @@
 #special-attack {min-width: 100px; max-width: 100%; background-color: #9DB7F5;}
 #special-defense {min-width: 100px; max-width: 100%; background-color: #A7DB8D;}
 #speed {min-width: 100px; max-width: 100%; background-color: #FA92B2;}
-
-/* others */
-.hidden {
-    visibility: hidden;
-}

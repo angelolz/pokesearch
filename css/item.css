@@ -203,9 +203,3 @@
     flex-direction: column;
     margin: 2px 0;
 }
-
-
-/* others */
-.hidden {
-    visibility: hidden;
-}

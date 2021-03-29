@@ -294,6 +294,11 @@ p {
     border: 2px solid #FF0000;
 }
 
+/* others */
+.hidden {
+    visibility: hidden;
+}
+
 /* screen size rules */
 @media screen and (max-width:1280px) {
     .content {
