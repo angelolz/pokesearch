@@ -2,6 +2,7 @@
 $cacheFile = sprintf("%s/%s,id=%u.cache", CACHE_PATH, basename($_SERVER['PHP_SELF'], ".php"), $id);
 $cacheTime = 3600; //1 hour
 $start = round(microtime(true) * 1000);
+$cache = false;
 
 if(file_exists($cacheFile) && time()-$cacheTime <= filemtime($cacheFile))
 {

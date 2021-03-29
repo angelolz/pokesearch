@@ -47,184 +47,187 @@ $pkmnSpInfo = json_decode($pkmnSpInfo);
                     //previous pokemon
                     include FUNCTIONS_PATH . '/cacheStart.php';
 
-                    echo '<div class="nav">';
-                    if($id == 1)
+                    if(!$cache)
                     {
-                        echo '<p id="prev" class="hidden">← #???: ???</p>';
-                    }
-
-                    else
-                    {
-                        echo sprintf('<a href="%s?id=%u"><p id="prev">← %s: %s</p></a>', $_SERVER['PHP_SELF'], ($id - 1), formatNum($id - 1), ucfirst($pkmns->results[0]->name));
-                    }
-
-                    echo '<span class="current-pokemon">';
-                    echo '<h1>'. ucfirst($pkmnSpInfo->name) . '</h1>';
-                    echo '<h2>'. formatNum($id) . '</h2>';
-                    echo '</span>';
-
-                    //next pokemon
-                    if($id == $count)
-                    {
-                        echo '<p id="next" class="hidden">#???: ??? →</p>';
-                    }
-
-                    else
-                    {
+                        echo '<div class="nav">';
                         if($id == 1)
                         {
-                            echo sprintf('<a href="%s?id=%u"><p id="next">%s: %s →</p></a>', $_SERVER['PHP_SELF'], ($id + 1), formatNum($id + 1), ucfirst($pkmns->results[1]->name));
+                            echo '<p id="prev" class="hidden">← #???: ???</p>';
                         }
 
                         else
                         {
-                            echo sprintf('<a href="%s?id=%u"><p id="next">%s: %s →</p></a>', $_SERVER['PHP_SELF'], ($id + 1), formatNum($id + 1), ucfirst($pkmns->results[2]->name));
+                            echo sprintf('<a href="%s?id=%u"><p id="prev">← %s: %s</p></a>', $_SERVER['PHP_SELF'], ($id - 1), formatNum($id - 1), ucfirst($pkmns->results[0]->name));
                         }
-                        $logger->LogDebug('formatting number = ' . ($id + 1));
-                    }
-                    echo '</div>';
 
-                    //image
-                    echo '<div class="viewer">';
-                    echo '<span class="image">';
-                    echo "<img src='{$pkmnInfo->sprites->front_default}'/>";
-                    echo '</span>';
-                    echo '</div>';
+                        echo '<span class="current-pokemon">';
+                        echo '<h1>'. ucfirst($pkmnSpInfo->name) . '</h1>';
+                        echo '<h2>'. formatNum($id) . '</h2>';
+                        echo '</span>';
 
-                    echo '<div class="info">';
-
-                    echo '<div class="col" id="first">';
-                    echo '<h2>Basic Information</h2>';
-                    echo '<div class="stat">';
-                    echo '<span class="key">Height</span>';
-                    echo "<span class='value'><p>{$pkmnInfo->height}</p></span>";
-                    echo '</div>';
-                    echo '<div class="stat">';
-                    echo '<span class="key">Weight</span>';
-                    echo "<span class='value'><p>{$pkmnInfo->weight}</p></span>";
-                    echo '</div>';
-                    echo '<div class="stat">';
-                    echo '<span class="key">Type</span>';
-                    if(count($pkmnInfo->types) == 2)
-                    {
-                        $type = sprintf("%s - %s", ucfirst($pkmnInfo->types[0]->type->name),
-                                                   ucfirst($pkmnInfo->types[1]->type->name));
-                    }
-
-                    else
-                    {
-                        $type = ucfirst($pkmnInfo->types[0]->type->name);
-                    }
-                    echo "<span class='value'><p>{$type}</p></span>";
-                    echo '</div>';
-                    echo '<div class="stat">';
-                    echo '<span class="key">Base EXP</span>';
-                    echo "<span class='value'><p>{$pkmnInfo->base_experience}</p></span>";
-                    echo '</div>';
-                    echo '<div class="stat">';
-                    echo '<span class="key">Growth Rate</span>';
-                    echo "<span class='value'><p>" . ucfirst($pkmnSpInfo->growth_rate->name) . "</p></span>";
-                    echo '</div>';
-                    echo '<div class="stat">';
-                    echo '<span class="key">Held Items</span>';
-                    echo '<span class="value">';
-                    if(count($pkmnInfo->held_items) != 0)
-                    {
-                        foreach($pkmnInfo->held_items as $item)
+                        //next pokemon
+                        if($id == $count)
                         {
-                            echo "<p>" . ucwords(str_replace("-", " ", $item->item->name)) . "</p>";
+                            echo '<p id="next" class="hidden">#???: ??? →</p>';
                         }
-                    }
 
-                    else
-                    {
-                        echo "<p><i>None</i></p>";
-                    }
-                    echo '</span>';
-                    echo '</div>';
-                    echo '</div>';
-
-                    echo '<div class="col" id="second">';
-                    echo '<h2>Species Information</h2>';
-                    echo '<div class="stat">';
-                    echo '<span class="key">Color</span>';
-                    echo "<span class='value'><p>" . ucfirst($pkmnSpInfo->color->name) . "</p></span>";
-                    echo '</div>';
-                    echo '<div class="stat">';
-                    echo '<span class="key">Base Happiness</span>';
-                    echo "<span class='value'><p>{$pkmnSpInfo->base_happiness}</p></span>";
-                    echo '</div>';
-                    echo '<div class="stat">';
-                    echo '<span class="key">Capture Rate</span>';
-                    echo "<span class='value'><p>{$pkmnSpInfo->capture_rate}</p></span>";
-                    echo '</div>';
-                    echo '<div class="stat">';
-                    echo '<span class="key">Gender Rate</span>';
-                    echo "<span class='value'><p>{$pkmnSpInfo->gender_rate}</p></span>";
-                    echo '</div>';
-                    echo '<div class="stat">';
-                    echo '<span class="key">Generation</span>';
-
-                    $generation = json_decode(file_get_contents($pkmnSpInfo->generation->url));
-                    $region = ucwords($generation->main_region->name);
-                    echo "<span class='value'><p>{$region}</p></span>";
-                    echo '</div>';
-                    echo '<div class="stat">';
-                    echo '<span class="key">Egg Groups</span>';
-
-                    echo "<span class='value'>";
-                    foreach($pkmnSpInfo->egg_groups as $egg_group)
-                    {
-                        echo "<p>" . ucwords($egg_group->name) . "</p>";
-                    }
-                    echo "</span>";
-                    echo '</div>';
-                    echo '<div class="stat">';
-                    echo '<span class="key">Hatch Counter</span>';
-                    echo "<span class='value'><p>{$pkmnSpInfo->hatch_counter}</p></span>";
-                    echo '</div>';
-                    echo '</div>';
-
-                    echo '<div class="col" id="third">';
-                    echo '<h2>Stats</h2>';
-                    foreach($pkmnInfo->stats as $stat)
-                    {
-                        switch($stat->stat->name)
+                        else
                         {
-                            case "hp":
-                                $name = "HP";
-                                break;
-                            case "attack":
-                                $name = "Attack";
-                                break;
-                            case "defense":
-                                $name = "Defense";
-                                break;
-                            case "special-attack":
-                                $name = "Sp. Atk";
-                                break;
-                            case "special-defense":
-                                $name = "Sp. Atk";
-                                break;
-                            case "speed":
-                                $name = "Speed";
-                                break;
-                            default:
-                                $name = "????";
-                                break;
-                        }
+                            if($id == 1)
+                            {
+                                echo sprintf('<a href="%s?id=%u"><p id="next">%s: %s →</p></a>', $_SERVER['PHP_SELF'], ($id + 1), formatNum($id + 1), ucfirst($pkmns->results[1]->name));
+                            }
 
-                        echo '<div class="bar">';
-                        echo sprintf("<div class='stattext' id='%s' value='%u'>%s: %u</div>",
-                                    $stat->stat->name, $stat->base_stat, $name, $stat->base_stat);
+                            else
+                            {
+                                echo sprintf('<a href="%s?id=%u"><p id="next">%s: %s →</p></a>', $_SERVER['PHP_SELF'], ($id + 1), formatNum($id + 1), ucfirst($pkmns->results[2]->name));
+                            }
+                            $logger->LogDebug('formatting number = ' . ($id + 1));
+                        }
                         echo '</div>';
-                    }
-                    echo '</div>';
-                    echo '</div>';
 
-                    include FUNCTIONS_PATH . '/cacheEnd.php';
+                        //image
+                        echo '<div class="viewer">';
+                        echo '<span class="image">';
+                        echo "<img src='{$pkmnInfo->sprites->front_default}'/>";
+                        echo '</span>';
+                        echo '</div>';
+
+                        echo '<div class="info">';
+
+                        echo '<div class="col" id="first">';
+                        echo '<h2>Basic Information</h2>';
+                        echo '<div class="stat">';
+                        echo '<span class="key">Height</span>';
+                        echo "<span class='value'><p>{$pkmnInfo->height}</p></span>";
+                        echo '</div>';
+                        echo '<div class="stat">';
+                        echo '<span class="key">Weight</span>';
+                        echo "<span class='value'><p>{$pkmnInfo->weight}</p></span>";
+                        echo '</div>';
+                        echo '<div class="stat">';
+                        echo '<span class="key">Type</span>';
+                        if(count($pkmnInfo->types) == 2)
+                        {
+                            $type = sprintf("%s - %s", ucfirst($pkmnInfo->types[0]->type->name),
+                                                       ucfirst($pkmnInfo->types[1]->type->name));
+                        }
+
+                        else
+                        {
+                            $type = ucfirst($pkmnInfo->types[0]->type->name);
+                        }
+                        echo "<span class='value'><p>{$type}</p></span>";
+                        echo '</div>';
+                        echo '<div class="stat">';
+                        echo '<span class="key">Base EXP</span>';
+                        echo "<span class='value'><p>{$pkmnInfo->base_experience}</p></span>";
+                        echo '</div>';
+                        echo '<div class="stat">';
+                        echo '<span class="key">Growth Rate</span>';
+                        echo "<span class='value'><p>" . ucfirst($pkmnSpInfo->growth_rate->name) . "</p></span>";
+                        echo '</div>';
+                        echo '<div class="stat">';
+                        echo '<span class="key">Held Items</span>';
+                        echo '<span class="value">';
+                        if(count($pkmnInfo->held_items) != 0)
+                        {
+                            foreach($pkmnInfo->held_items as $item)
+                            {
+                                echo "<p>" . ucwords(str_replace("-", " ", $item->item->name)) . "</p>";
+                            }
+                        }
+
+                        else
+                        {
+                            echo "<p><i>None</i></p>";
+                        }
+                        echo '</span>';
+                        echo '</div>';
+                        echo '</div>';
+
+                        echo '<div class="col" id="second">';
+                        echo '<h2>Species Information</h2>';
+                        echo '<div class="stat">';
+                        echo '<span class="key">Color</span>';
+                        echo "<span class='value'><p>" . ucfirst($pkmnSpInfo->color->name) . "</p></span>";
+                        echo '</div>';
+                        echo '<div class="stat">';
+                        echo '<span class="key">Base Happiness</span>';
+                        echo "<span class='value'><p>{$pkmnSpInfo->base_happiness}</p></span>";
+                        echo '</div>';
+                        echo '<div class="stat">';
+                        echo '<span class="key">Capture Rate</span>';
+                        echo "<span class='value'><p>{$pkmnSpInfo->capture_rate}</p></span>";
+                        echo '</div>';
+                        echo '<div class="stat">';
+                        echo '<span class="key">Gender Rate</span>';
+                        echo "<span class='value'><p>{$pkmnSpInfo->gender_rate}</p></span>";
+                        echo '</div>';
+                        echo '<div class="stat">';
+                        echo '<span class="key">Generation</span>';
+
+                        $generation = json_decode(file_get_contents($pkmnSpInfo->generation->url));
+                        $region = ucwords($generation->main_region->name);
+                        echo "<span class='value'><p>{$region}</p></span>";
+                        echo '</div>';
+                        echo '<div class="stat">';
+                        echo '<span class="key">Egg Groups</span>';
+
+                        echo "<span class='value'>";
+                        foreach($pkmnSpInfo->egg_groups as $egg_group)
+                        {
+                            echo "<p>" . ucwords($egg_group->name) . "</p>";
+                        }
+                        echo "</span>";
+                        echo '</div>';
+                        echo '<div class="stat">';
+                        echo '<span class="key">Hatch Counter</span>';
+                        echo "<span class='value'><p>{$pkmnSpInfo->hatch_counter}</p></span>";
+                        echo '</div>';
+                        echo '</div>';
+
+                        echo '<div class="col" id="third">';
+                        echo '<h2>Stats</h2>';
+                        foreach($pkmnInfo->stats as $stat)
+                        {
+                            switch($stat->stat->name)
+                            {
+                                case "hp":
+                                    $name = "HP";
+                                    break;
+                                case "attack":
+                                    $name = "Attack";
+                                    break;
+                                case "defense":
+                                    $name = "Defense";
+                                    break;
+                                case "special-attack":
+                                    $name = "Sp. Atk";
+                                    break;
+                                case "special-defense":
+                                    $name = "Sp. Atk";
+                                    break;
+                                case "speed":
+                                    $name = "Speed";
+                                    break;
+                                default:
+                                    $name = "????";
+                                    break;
+                            }
+
+                            echo '<div class="bar">';
+                            echo sprintf("<div class='stattext' id='%s' value='%u'>%s: %u</div>",
+                                        $stat->stat->name, $stat->base_stat, $name, $stat->base_stat);
+                            echo '</div>';
+                        }
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</span>';
+
+                        include FUNCTIONS_PATH . '/cacheEnd.php';
+                    }
                     ?>
-            </span>
         </div>
         <?php require_once 'layouts/footer.php'; ?>
     </body>
