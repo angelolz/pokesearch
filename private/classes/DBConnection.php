@@ -1,6 +1,6 @@
 <?php
-    require_once '../../init.php';
-    require_once 'KLogger.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/init.php';
+require_once 'KLogger.php';
 
 class DBConnection
 {
@@ -11,24 +11,24 @@ class DBConnection
         $this->logger = new KLogger(LOG_PATH . "/log.txt", KLogger::DEBUG);
     }
 
-    private function getConnection()
+    public function getConnection()
     {
         // vvvv FOR USE IN NON-HEROKU PRODUCTION vvvvv
-        // //read db login info from file and save to array
-        // $dbInfo = parse_ini_file("../db.ini");
-        //
-        // //read from array
-        // $host = $dbInfo['host'];
-        // $username = $dbInfo['username'];
-        // $password = $dbInfo['password'];
-        // $dbName = $dbInfo['name'];
+        //read db login info from file and save to array
+        $dbInfo = parse_ini_file(PRIVATE_PATH . "/db.ini");
+
+        //read from array
+        $host = $dbInfo['host'];
+        $username = $dbInfo['username'];
+        $password = $dbInfo['password'];
+        $dbName = $dbInfo['name'];
 
         //heroku config var
-        $host = getenv("HOST");
-        $username = getenv("USERNAME");
-        $password = getenv("PASSWORD");
-        $dbName = getenv("DBNAME");
-        
+        // $host = getenv("HOST");
+        // $username = getenv("USERNAME");
+        // $password = getenv("PASSWORD");
+        // $dbName = getenv("DBNAME");
+
         try
         {
             $db = new PDO("mysql:host={$host};dbname={$dbName}", $username, $password);
@@ -43,7 +43,8 @@ class DBConnection
 
         return $db;
     }
-    //register function
+
+    //register functions
     public function emailExists($email)
     {
         $con = $this->getConnection();
@@ -59,7 +60,7 @@ class DBConnection
 
         catch (PDOException $e)
         {
-            $this->$logger->LogWarn("Unable to check if email exists: " . $e-getMessage());
+            $this->$logger->LogWarn("Unable to check if email exists: " . $e->getMessage());
         }
     }
 
@@ -78,7 +79,7 @@ class DBConnection
 
         catch (PDOException $e)
         {
-            $this->$logger->LogWarn("Unable to check if username was taken: " . $e-getMessage());
+            $this->$logger->LogWarn("Unable to check if username was taken: " . $e->getMessage());
         }
     }
 
@@ -96,14 +97,12 @@ class DBConnection
 
         catch (PDOException $e)
         {
-            print($e->getMessage());
-            $logger->LogWarn("Unable to register: " . $e-getMessage());
+            $logger->LogWarn("Unable to register: " . $e->getMessage());
         }
 
         catch (Exception $e)
         {
-            print($e->getMessage());
-            $logger->LogWarn("Unable to register: " . $e-getMessage());
+            $logger->LogWarn("Unable to register: " . $e->getMessage());
         }
     }
 
@@ -127,7 +126,6 @@ class DBConnection
             $q->bindParam(":username", $username);
             $q->bindParam(":password", $password);
             $q->execute();
-            $count = $q->rowCount();
             $row = $q->fetch(PDO::FETCH_ASSOC);
 
             return $row;
@@ -135,8 +133,7 @@ class DBConnection
 
         catch (PDOException $e)
         {
-            print($e->getMessage());
-            $this->$logger->LogWarn("Unable to check if user exists: " . $e-getMessage());
+            $this->$logger->LogWarn("Unable to check if user exists: " . $e->getMessage());
         }
     }
 }

@@ -52,7 +52,7 @@
 
         else
         {
-            $_SESSION['messages'] = array("The email/password you've entered is incorrect.");
+            $_SESSION['messages'][] = "The email/password you've entered is incorrect.";
             $_SESSION['class'] = "fail";
             $logger->LogInfo("auth = false");
             header('Location:  ../../login.php');

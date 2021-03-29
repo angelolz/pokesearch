@@ -99,7 +99,7 @@
         if($dbc->addUser($email, $username, $password))
         {
             $_SESSION['class'] = "success";
-            $_SESSION['messages'] = array("You have been successfully registered! Please login below.");
+            $_SESSION['messages'][] = "You have been successfully registered! Please login below.";
             $_SESSION['form_data'] = array();
             header('Location:  ../../login.php');
             exit;
