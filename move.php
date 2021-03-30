@@ -195,7 +195,7 @@ $moveInfo = json_decode($moveInfo);
                             echo '</div>';
                         }
 
-                        if($pkmnToShow > 20)
+                        if($pkmnToShow == 20)
                         {
                             echo sprintf('<p><i>and %u more...</i></p>', count($moveInfo->learned_by_pokemon) - 20);
                         }
