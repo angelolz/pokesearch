@@ -18,6 +18,11 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     }
 }
 
+else
+{
+    $id = 1;
+}
+
 $url = sprintf("https://pokeapi.co/api/v2/item?offset=%u&limit=%u", ($id-2 < 0 ? 0 : $id-2) , 3);
 $items = file_get_contents($url);
 $items = json_decode($items);
@@ -49,12 +54,12 @@ $itemInfo = json_decode($itemInfo);
                     //prev item
                     if($id == 1)
                     {
-                        echo '<p id="prev" class="hidden">← #???: ???</p>';
+                        echo '<p id="prev" class="hidden">← ???</p>';
                     }
 
                     else
                     {
-                        echo sprintf('<a href="%s?id=%u"><p id="prev">← %s: %s</p></a>', $_SERVER['PHP_SELF'], ($id - 1), formatNum($id - 1), ucwords(str_replace("-", " ", $items->results[0]->name)));
+                        echo sprintf('<a href="%s?id=%u"><p id="prev">← %s</p></a>', $_SERVER['PHP_SELF'], ($id - 1), ucwords(str_replace("-", " ", $items->results[0]->name)));
                     }
 
                     echo '<span class="current-item">';
@@ -64,19 +69,19 @@ $itemInfo = json_decode($itemInfo);
                     //next item
                     if($id == $count)
                     {
-                        echo '<p id="next" class="hidden">#???: ??? →</p>';
+                        echo '<p id="next" class="hidden">??? →</p>';
                     }
 
                     else
                     {
                         if($id == 1)
                         {
-                            echo sprintf('<a href="%s?id=%u"><p id="next">%s: %s →</p></a>', $_SERVER['PHP_SELF'], ($id + 1), formatNum($id + 1), ucwords(str_replace("-", " ", $items->results[1]->name)));
+                            echo sprintf('<a href="%s?id=%u"><p id="next">%s →</p></a>', $_SERVER['PHP_SELF'], ($id + 1), ucwords(str_replace("-", " ", $items->results[1]->name)));
                         }
 
                         else
                         {
-                            echo sprintf('<a href="%s?id=%u"><p id="next">%s: %s →</p></a>', $_SERVER['PHP_SELF'], ($id + 1), formatNum($id + 1), ucwords(str_replace("-", " ", $items->results[2]->name)));
+                            echo sprintf('<a href="%s?id=%u"><p id="next">%s →</p></a>', $_SERVER['PHP_SELF'], ($id + 1), ucwords(str_replace("-", " ", $items->results[2]->name)));
                         }
                         $logger->LogDebug('formatting number = ' . ($id + 1));
                     }
@@ -175,8 +180,10 @@ $itemInfo = json_decode($itemInfo);
                     else
                     {
                         echo '<span class="pkmn-list">';
-                        foreach($itemInfo->held_by_pokemon as $pokemon)
+                        $pkmnToShow = count($itemInfo->held_by_pokemon) > 20 ? 20 : count($itemInfo->held_by_pokemon);
+                        for($i = 0; $i < $pkmnToShow; $i++)
                         {
+                            $pokemon = $itemInfo->held_by_pokemon[$i];
                             $pkmnPage = json_decode(file_get_contents($pokemon->pokemon->url));
                             $pkmnSpPage = json_decode(file_get_contents($pkmnPage->species->url));
 
@@ -191,6 +198,10 @@ $itemInfo = json_decode($itemInfo);
                             echo '</span>';
                             echo '</a>';
                             echo '</div>';
+                        }
+                        if($pkmnToShow > 20)
+                        {
+                            echo sprintf('<p><i>and %u more...</i></p>', count($moveInfo->held_by_pokemon) - 20);
                         }
                         echo '</span>';
                     }

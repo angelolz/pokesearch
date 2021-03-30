@@ -18,6 +18,11 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     }
 }
 
+else
+{
+    $id = 1;
+}
+
 $url = sprintf("https://pokeapi.co/api/v2/move?offset=%u&limit=%u", ($id-2 < 0 ? 0 : $id-2) , 3);
 $moves = file_get_contents($url);
 $moves = json_decode($moves);
@@ -169,9 +174,9 @@ $moveInfo = json_decode($moveInfo);
                     else
                     {
                         echo '<span class="pkmn-list">';
-                        $itemsToShow = count($moveInfo->learned_by_pokemon) > 20 ? 20 : count($moveInfo->learned_by_pokemon);
+                        $pkmnToShow = count($moveInfo->learned_by_pokemon) > 20 ? 20 : count($moveInfo->learned_by_pokemon);
 
-                        for($i = 0; $i < $itemsToShow; $i++)
+                        for($i = 0; $i < $pkmnToShow; $i++)
                         {
                             $pokemon = $moveInfo->learned_by_pokemon[$i];
                             $pkmnPage = json_decode(file_get_contents($pokemon->url));
@@ -189,8 +194,8 @@ $moveInfo = json_decode($moveInfo);
                             echo '</a>';
                             echo '</div>';
                         }
-                        
-                        if($itemsToShow)
+
+                        if($pkmnToShow > 20)
                         {
                             echo sprintf('<p><i>and %u more...</i></p>', count($moveInfo->learned_by_pokemon) - 20);
                         }
