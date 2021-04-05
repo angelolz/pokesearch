@@ -162,7 +162,16 @@ $pkmnSpInfo = json_decode($pkmnSpInfo);
                         echo '</div>';
                         echo '<div class="stat">';
                         echo '<span class="key">Gender Ratio</span>';
-                        echo sprintf("<span class='value'><p>%u ♀ : %u ♂</p></span>", $pkmnSpInfo->gender_rate, (8 - $pkmnSpInfo->gender_rate));
+
+                        if($pkmnSpInfo->gender_rate == -1)
+                        {
+                            echo "<span class='value'><p>None (genderless)</p></span>";
+                        }
+
+                        else
+                        {
+                            echo sprintf("<span class='value'><p>%u ♀ : %u ♂</p></span>", $pkmnSpInfo->gender_rate, (8 - $pkmnSpInfo->gender_rate));
+                        }
                         echo '</div>';
                         echo '<div class="stat">';
                         echo '<span class="key">Generation</span>';
