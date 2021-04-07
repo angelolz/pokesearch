@@ -6,7 +6,8 @@
     <?php
     if(isset($_SESSION['authenticated']) && $_SESSION['authenticated'] == 'true')
     {
-        echo "<p class='loggedin'>Welcome, <strong>{$_SESSION['username']}</strong>!</p>";
+        $username = htmlspecialchars($_SESSION['username']);
+        echo "<p class='loggedin'>Welcome, <strong>{$username}</strong>!</p>";
         echo '<a href="profile.php" class="user-buttons">Profile</a>';
         echo '<a href="logout.php" class="user-buttons">Logout</a>';
     }

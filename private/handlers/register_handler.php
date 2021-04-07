@@ -51,11 +51,6 @@
         $errors[]="Your password is too short.";
     }
 
-    else if(strlen($password) > 32)
-    {
-        $errors[]="Your password is too long.";
-    }
-
     //check if password meets requirements
     if(!preg_match("#[0-9]+#", $password))
     {

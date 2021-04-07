@@ -110,12 +110,12 @@ else
                             {
                                 if($team['team_id'] == $teamId)
                                 {
-                                    echo sprintf('<li><b>%s</b></li>', $team['team_name']);
+                                    echo sprintf('<li><b>%s</b></li>', htmlspecialchars($team['team_name']));
                                 }
 
                                 else
                                 {
-                                    echo sprintf('<a href="profile.php?team=%u"><li>%s</li></a>', $team['team_id'], $team['team_name']);
+                                    echo sprintf('<a href="profile.php?team=%u"><li>%s</li></a>', $team['team_id'], htmlspecialchars($team['team_name']));
                                 }
                             }
                             echo '</ul>';
@@ -146,7 +146,7 @@ else
 
                             $currentTeam = getTeam($teamId);
 
-                            echo '<h1>' . $currentTeam[0]['team_name'] . '</h1>';
+                            echo '<h1>' . htmlspecialchars($currentTeam[0]['team_name']) . '</h1>';
                             $pokemonTeam = getPokemon($teamId);
 
                             if(count($pokemonTeam) < 6)

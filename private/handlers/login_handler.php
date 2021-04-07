@@ -39,7 +39,6 @@
     else
     {
         $user = $dbc->userExists($username, $password);
-
         $_SESSION['authenticated'] = isset($user['username']) ? true : null;
 
         if($_SESSION['authenticated'] == true)

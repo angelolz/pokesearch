@@ -66,7 +66,7 @@ class DBConnection
 
         catch (PDOException $e)
         {
-            $this->$logger->LogWarn("Unable to check if email exists: " . $e->getMessage());
+            $this->logger->LogWarn("Unable to check if email exists: " . $e->getMessage());
         }
     }
 
@@ -85,19 +85,21 @@ class DBConnection
 
         catch (PDOException $e)
         {
-            $this->$logger->LogWarn("Unable to check if username was taken: " . $e->getMessage());
+            $this->logger->LogWarn("Unable to check if username was taken: " . $e->getMessage());
         }
     }
 
     public function addUser($email, $username, $password)
     {
+        $securePassword = password_hash($password, PASSWORD_BCRYPT);
         $con = $this->getConnection();
         try
         {
             $q = $con->prepare("INSERT INTO Users (email, username, password) VALUES (:email, :username, :password)");
             $q->bindParam(":email", $email);
             $q->bindParam(":username", $username);
-            $q->bindParam(":password", $password);
+            $q->bindParam(":password", $securePassword);
+
             return $q->execute();
         }
 
@@ -120,26 +122,28 @@ class DBConnection
         {
             if(strpos($username, '@') !== false)
             {
-                $sql = "SELECT * FROM Users WHERE email = :username AND password = :password;";
+                $sql = "SELECT * FROM Users WHERE email = :username";
             }
 
             else
             {
-                $sql = "SELECT * FROM Users WHERE username = :username AND password = :password;";
+                $sql = "SELECT * FROM Users WHERE username = :username";
             }
 
             $q = $con->prepare($sql);
             $q->bindParam(":username", $username);
-            $q->bindParam(":password", $password);
             $q->execute();
             $row = $q->fetch(PDO::FETCH_ASSOC);
 
-            return $row;
+            if(password_verify($password, $row['password']))
+            {
+                return $row;
+            }
         }
 
         catch (PDOException $e)
         {
-            $this->$logger->LogWarn("Unable to check if user exists: " . $e->getMessage());
+            $this->logger->LogWarn("Unable to check if user exists: " . $e->getMessage());
         }
     }
 }

@@ -54,7 +54,7 @@
                             <input class="textbox" type="password" name="password" placeholder="Password" onclick="passwordShowTip();" onblur="passwordHideTip();"/>
                             <span id="password-tooltip">
                                 <ul>
-                                    <li>8-32 characters</li>
+                                    <li>At least 8 characters</li>
                                     <li>Must have one number</li>
                                     <li>Must have one capital and lowercase letter</li>
                                     <li>Must have one symbol</li>
