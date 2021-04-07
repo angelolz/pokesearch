@@ -22,12 +22,6 @@
         $errors[]="This email is invalid.";
     }
 
-    //check email length
-    if(strlen($email) > 255)
-    {
-        $errors[]="Your email is too long.";
-    }
-
     //check username length
     if(strlen($username) < 3)
     {
