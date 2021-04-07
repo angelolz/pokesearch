@@ -6,9 +6,9 @@ USE PokeSearch;
 */
 CREATE TABLE Users (
 	user_id int NOT NULL AUTO_INCREMENT,
-	email VARCHAR(320) NOT NULL UNIQUE,
+	email VARCHAR(255) NOT NULL UNIQUE,
     username varchar(30) NOT NULL UNIQUE,
-    password VARCHAR(32) NOT NULL,
+    password VARCHAR(60) NOT NULL,
     PRIMARY KEY (user_id)
 );
 
