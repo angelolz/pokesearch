@@ -84,7 +84,17 @@ else
                     <div id="create-team-box" class="hidden">
                         <h3>Enter your new Team Name:</h3>
                         <form method="post" action="private/handlers/create_team_handler.php">
-                            <input type="textbox" type="text" name="team-name" placeholder="Team Name"></input>
+                            <?php
+                            if(isset($_SESSION['form_data']['team-name']))
+                            {
+                                echo '<input type="textbox" type="text" value="' . htmlspecialchars($_SESSION['form_data']['team-name']) . '" name="team-name" placeholder="Team Name"></input>';
+                            }
+
+                            else
+                            {
+                                echo '<input type="textbox" type="text" name="team-name" placeholder="Team Name"></input>';
+                            }
+                            ?>
                             <button id="createbutton">Create</button>
                         </form>
                         <p>Your team name must be 20 characters max, and can only contain letters and spaces.</p>
@@ -159,12 +169,32 @@ else
                         <div id="addPokemonForm" class="hidden">
                             <form method="post" action="private/handlers/add_pokemon_handler.php">
                                 <p><b>Add a Pokémon:</b></p>
-                                <?php echo '<input type="hidden" name="teamId" value="' . $teamId . '">'; ?>
-                                <input id="pkmnName" type="text" name="pokemon" placeholder="Pokemon Name"/>
+                                <?php
+                                echo '<input type="hidden" name="teamId" value="' . $teamId . '">';
+
+                                if(isset($_SESSION['form_data']['pokemon']))
+                                {
+                                    echo '<input id="pkmnName" type="text" value="' . htmlspecialchars($_SESSION['form_data']['pokemon']) . '" name="pokemon" placeholder="Pokemon Name"/>';
+                                }
+
+                                else
+                                {
+                                    echo '<input id="pkmnName" type="text" name="pokemon" placeholder="Pokemon Name"/>';
+                                }
+                                ?>
                                 <div class="moveset-form">
-                                    <?php for ($i = 1; $i <= 4; $i++)
+                                    <?php
+                                    for ($i = 1; $i <= 4; $i++)
                                     {
-                                        echo '<input class="textbox" type="text" name="move-' . $i . '" placeholder="Move ' . $i . '"/>';
+                                        if(isset($_SESSION['form_data']["move-{$i}"]))
+                                        {
+                                            echo '<input class="textbox" type="text" value="' . htmlspecialchars($_SESSION['form_data']["move-{$i}"]) . '" name="move-' . $i . '" placeholder="Move ' . $i . '"/>';
+                                        }
+
+                                        else
+                                        {
+                                            echo '<input class="textbox" type="text" name="move-' . $i . '" placeholder="Move ' . $i . '"/>';
+                                        }
                                     }
                                     ?>
                                 </div>

@@ -49,7 +49,18 @@
     			<h1>Login</h1>
                 <div class="input-box">
                     <form method="post" action="private/handlers/login_handler.php">
-                        <input class="textbox" type="text" name="username" placeholder="Email/Username"/>
+                        <?php
+                        if(isset($_SESSION['form_data']['username']))
+                        {
+                            echo '<input class="textbox" type="text" value="' . htmlspecialchars($_SESSION['form_data']['username']) . '" name="username" placeholder="Email/Username"/>';
+                        }
+
+                        else
+                        {
+                            echo '<input class="textbox" type="text" name="username" placeholder="Email/Username"/>';
+                        }
+
+                        ?>  
                         <br>
                         <input class="textbox"  type="password" name="password" placeholder="Password"/>
                         <br>

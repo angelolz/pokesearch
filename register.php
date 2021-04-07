@@ -38,10 +38,31 @@
     			<h1>Register</h1>
                 <div class="input-box">
                     <form method="post" action="private/handlers/register_handler.php">
-                        <input class="textbox" type="text" name="email" placeholder="Email"/>
+                        <?php
+                        if(isset($_SESSION['form_data']['email']))
+                        {
+                            echo '<input class="textbox" type="text" value="' . htmlspecialchars($_SESSION['form_data']['email']) .'" name="email" placeholder="Email"/>';
+                        }
+
+                        else
+                        {
+                            echo '<input class="textbox" type="text" name="email" placeholder="Email"/>';
+                        }
+                        ?>
+
                         <br>
                         <span class="username-field">
-                            <input class="textbox" type="text" name="username" placeholder="Username" onclick="usernameShowTip();" onblur="usernameHideTip();"/>
+                            <?php
+                            if(isset($_SESSION['form_data']['email']))
+                            {
+                                echo '<input class="textbox" type="text" value="' . htmlspecialchars($_SESSION['form_data']['username']) . '" name="username" placeholder="Username" onclick="usernameShowTip();" onblur="usernameHideTip();"/>';
+                            }
+
+                            else
+                            {
+                                echo '<input class="textbox" type="text" name="username" placeholder="Username" onclick="usernameShowTip();" onblur="usernameHideTip();"/>';
+                            }
+                            ?>
                             <span id="username-tooltip">
                                 <ul>
                                     <li>3-30 characters</li>

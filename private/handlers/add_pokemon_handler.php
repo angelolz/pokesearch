@@ -16,6 +16,7 @@
 
     $errors = array();
     $dbc = new DBConnection();
+    $logger = new KLogger(LOG_PATH . '/log.txt', KLogger::DEBUG);
 
     if(empty($pkmnName))
     {
@@ -73,6 +74,7 @@
         else
         {
             $_SESSION['class'] = "fail";
+            $_SESSION['form_data'] = $_POST;
             $_SESSION['messages'][] = "There was a problem adding your Pokémon.";
         }
 

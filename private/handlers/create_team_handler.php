@@ -2,6 +2,7 @@
     require_once '../../init.php';
     require_once FUNCTIONS_PATH . '/profileHelper.php';
     require_once CLASSES_PATH . '/DBConnection.php';
+    require_once CLASSES_PATH . '/KLogger.php';
 
     session_start();
 
@@ -11,6 +12,7 @@
     $errors = array();
 
     $dbc = new DBConnection();
+    $logger = new KLogger(LOG_PATH . '/log.txt', KLogger::DEBUG);
 
     if(empty($teamName))
     {
@@ -55,6 +57,7 @@
             $errors[] = "We experienced a problem creating your team";
             $_SESSION['messages'] = $errors;
             $_SESSION['class'] = "fail";
+            $_SESSION['form_data'] = $_POST;
             header('Location:  ../../profile.php');
             exit;
         }
