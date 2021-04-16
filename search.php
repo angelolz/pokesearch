@@ -45,6 +45,7 @@ switch($type)
         <?php require_once 'layouts/mininav.php'; ?>
         <div class="content">
             <?php require_once 'layouts/header.php'; ?>
+            <script src=js/closeBox.js></script>
             <span class="content-body">
                 <h1>Search</h1>
                 <?php
@@ -79,6 +80,7 @@ switch($type)
                     if(isset($errors) && !empty($errors))
                     {
                         echo "<div class='messages " . $class . "'>";
+                        echo "<span id='close'>x</span>";
                         echo "<p><b>There was a problem with your search:</b></p>";
                         echo "<ul>";
                         foreach($errors as $error)

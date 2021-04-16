@@ -37,6 +37,7 @@ else
         <div class="content">
             <?php
                 require_once 'layouts/header.php';
+                echo '<script src=js/closeBox.js></script>';
                 if(!isset($_SESSION['authenticated']))
                 {
                     $_SESSION['messages'][] = "You must be logged in to view this page.";
@@ -50,6 +51,7 @@ else
                 if(isset($_SESSION['messages']) && !empty($_SESSION['messages']))
                 {
                     echo "<div class='messages " . $_SESSION['class'] . "'>";
+                    echo "<span id='close'>x</span>";
                     if($_SESSION['class'] == "fail")
                     {
                         echo "<p><b>There was a problem with managing your team:</b></p>";

@@ -12,11 +12,13 @@
         <?php require_once 'layouts/mininav.php'; ?>
         <div class="content">
         <?php require_once 'layouts/header.php'; ?>
+        <script src=js/closeBox.js></script>
 			<span class="content-body">
                 <?php
                     if(isset($_SESSION['messages']) && !empty($_SESSION['messages']))
                     {
                         echo "<div class='messages " . $_SESSION['class'] . "'>";
+                        echo "<span id='close'>x</span>";
                         echo "<p><b>There was a problem with registering:</b></p>";
                         echo "<ul>";
                         foreach($_SESSION['messages'] as $message)

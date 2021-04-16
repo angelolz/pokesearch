@@ -11,11 +11,13 @@
         <?php require_once 'layouts/mininav.php'; ?>
         <div class="content">
         <?php require_once 'layouts/header.php'; ?>
+        <script src=js/closeBox.js></script>
 			<span class="content-body">
                 <?php
                 if(isset($_SESSION['messages']) && !empty($_SESSION['messages']))
                 {
                     echo "<div class='messages " . $_SESSION['class'] . "'>";
+                    echo "<span id='close'>x</span>";
                     if($_SESSION['class'] == "fail")
                     {
                         echo "<p><b>There was a problem with logging in:</b></p>";
@@ -60,7 +62,7 @@
                             echo '<input class="textbox" type="text" name="username" placeholder="Email/Username"/>';
                         }
 
-                        ?>  
+                        ?>
                         <br>
                         <input class="textbox"  type="password" name="password" placeholder="Password"/>
                         <br>

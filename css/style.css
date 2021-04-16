@@ -299,6 +299,20 @@ p {
     visibility: hidden;
 }
 
+#close {
+  float:right;
+  position: relative;
+  top: 5px;
+  right: 5px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#close:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 /* screen size rules */
 @media screen and (max-width:1280px) {
     .content {
