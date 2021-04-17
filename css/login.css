@@ -45,12 +45,14 @@
     left: 105%;
     width: 200px;
 
-    visibility: hidden;
+    opacity:0;
     background-color: rgba(0,0,0,0.8);
     color: #fff;
     text-align: left;
     border-radius: 10px;
     padding: 2px 2px;
+
+    transition: opacity 150ms linear;
 }
 
 #username-tooltip ul, #password-tooltip ul {

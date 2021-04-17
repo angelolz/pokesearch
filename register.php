@@ -5,13 +5,14 @@
         <title>Pokésearch | Register</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/login.css">
-        <script type="text/javascript" src="js/register_tooltips.js"></script>
+
         <?php require_once 'layouts/favicon.php'; ?>
     </head>
     <body>
         <?php require_once 'layouts/mininav.php'; ?>
         <div class="content">
         <?php require_once 'layouts/header.php'; ?>
+        <script type="text/javascript" src="js/register_tooltips.js"></script>
         <script src=js/closeBox.js></script>
 			<span class="content-body">
                 <?php
@@ -57,12 +58,12 @@
                             <?php
                             if(isset($_SESSION['form_data']['email']))
                             {
-                                echo '<input class="textbox" type="text" value="' . htmlspecialchars($_SESSION['form_data']['username']) . '" name="username" placeholder="Username" onclick="usernameShowTip();" onblur="usernameHideTip();"/>';
+                                echo '<input class="textbox" type="text" value="' . htmlspecialchars($_SESSION['form_data']['username']) . '" name="username" placeholder="Username"/>';
                             }
 
                             else
                             {
-                                echo '<input class="textbox" type="text" name="username" placeholder="Username" onclick="usernameShowTip();" onblur="usernameHideTip();"/>';
+                                echo '<input class="textbox" type="text" name="username" placeholder="Username"/>';
                             }
                             ?>
                             <span id="username-tooltip">
@@ -74,7 +75,7 @@
                         </span>
                         <br>
                         <span class="password-field">
-                            <input class="textbox" type="password" name="password" placeholder="Password" onclick="passwordShowTip();" onblur="passwordHideTip();"/>
+                            <input class="textbox" type="password" name="password" placeholder="Password"/>
                             <span id="password-tooltip">
                                 <ul>
                                     <li>At least 8 characters</li>
