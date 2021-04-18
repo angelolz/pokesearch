@@ -44,17 +44,17 @@
     {
         $latestTeam = addTeam($_SESSION['user_id'], $teamName);
         $dbc->logger->LogDebug("created new team: " . $teamName);
-        if(is_array($latestTeam))
+        if($latestTeam)
         {
             $_SESSION['class'] = "success";
             $_SESSION['messages'][] = "Your team was created successfully.";
-            header('Location:  ../../profile.php?team=' . $latestTeam['team_id']);
+            header('Location:  ../../profile.php');
             exit;
         }
 
         else
         {
-            $errors[] = "We experienced a problem creating your team";
+            $errors[] = "We experienced a problem creating your team.";
             $_SESSION['messages'] = $errors;
             $_SESSION['class'] = "fail";
             $_SESSION['form_data'] = $_POST;

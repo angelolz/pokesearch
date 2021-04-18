@@ -13,19 +13,7 @@ function addTeam($userId, $teamName)
         $q->bindParam(":user_id", $userId);
         $q->bindParam(":teamname", $teamName);
         $finished = $q->execute();
-
-
-        if($finished)
-        {
-            $q = $con->prepare('SELECT team_id, owner FROM Team WHERE owner = :userId ORDER BY team_id DESC');
-            $q->bindParam(":userId", $userId);
-            $q->execute();
-
-            $latestTeam = $q->fetch(PDO::FETCH_ASSOC);
-            return $latestTeam;
-        }
-
-        else return $finished;
+        return $finished;
     }
 
     catch (PDOException $e)

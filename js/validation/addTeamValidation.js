@@ -30,7 +30,20 @@ $(function() {
                 }
             },
             submitHandler: function(form) {
-                form.submit();
+                $.ajax({
+                    type: form.method,
+                    cache: false,
+                    url: "/private/handlers/create_team_handler.php",
+                    data: $(form).serialize(),
+                    success: function(html) {
+                        $("form[name='add-team']").trigger("reset");
+                        $("#create-team-box").toggleClass("hidden");
+                        $(".messages").replaceWith($(".messages", $(html)));
+                        setTimeout(function() {$(".messages").fadeOut("slow");}, 5000);
+                        $(".teams-list").replaceWith($(".teams-list", $(html)));
+                    },
+                });
+                return false;
             }
         }
     );

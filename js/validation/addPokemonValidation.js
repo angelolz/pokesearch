@@ -63,7 +63,7 @@ $(function() {
                         type: "post",
                         data: {
                             name: function() {
-                                return "https://pokeapi.co/api/v2/pokemon/" + $("input[name='move-4']").val();
+                                return "https://pokeapi.co/api/v2/move/" + $("input[name='move-4']").val();
                             }
                         }
                     }
@@ -92,7 +92,33 @@ $(function() {
                 },
             },
             submitHandler: function(form) {
-                form.submit();
+                $.ajax({
+                    type: form.method,
+                    cache: false,
+                    url: "/private/handlers/add_pokemon_handler.php",
+                    data: $(form).serialize(),
+                    success: function(html) {
+                        //remove form info and hides form
+                        $("form[name='add-pokemon']").trigger("reset");
+                        $("#addPokemonForm").toggleClass("hidden");
+
+                        //show success/fail message
+                        $(".messages").replaceWith($(".messages", $(html)));
+                        setTimeout(function() {$(".messages").fadeOut("slow");}, 7000);
+
+                        //remove add pokemon button if there are 5 pokemon
+                        if($(".pokemon").length == 5)
+                        {
+                            $("#addPokemon").remove();
+                            $("#addPokemonForm").remove();
+                        }
+
+                        //refresh pokemon list
+                        $(".pokemon-list").replaceWith($(".pokemon-list", $(html)));
+
+                    },
+                });
+                return false;
             }
         }
     );

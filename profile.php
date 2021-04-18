@@ -41,7 +41,6 @@ else
                 echo '<script src=https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.js></script>';
                 echo '<script src=js/validation/addTeamValidation.js></script>';
                 echo '<script src=js/validation/addPokemonValidation.js></script>';
-                echo '<script src=js/closeBox.js></script>';
                 if(!isset($_SESSION['authenticated']))
                 {
                     $_SESSION['messages'][] = "You must be logged in to view this page.";
@@ -55,7 +54,6 @@ else
                 if(isset($_SESSION['messages']) && !empty($_SESSION['messages']))
                 {
                     echo "<div class='messages " . $_SESSION['class'] . "'>";
-                    echo "<span id='close'>x</span>";
                     if($_SESSION['class'] == "fail")
                     {
                         echo "<p><b>There was a problem with managing your team:</b></p>";
@@ -79,6 +77,12 @@ else
                     echo '</div>';
 
                     $_SESSION['messages'] = null;
+                }
+
+                else
+                {
+                    echo "<div class='messages' style='display: none;'>";
+                    echo "</div>";
                 }
             ?>
             <div class="container">
@@ -209,6 +213,7 @@ else
                             </form>
                         </div>
 
+                        <span class="pokemon-list">
                         <?php
                         if(!count($teams) == 0)
                         {
@@ -264,6 +269,7 @@ else
                             }
                         }
                     ?>
+                </span>
                 </div>
             </div>
         </div>

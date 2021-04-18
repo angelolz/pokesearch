@@ -90,6 +90,7 @@ switch($type)
                         }
                         echo "</ul>";
                         echo "</div>";
+                        echo "<h2>No results found. Please try searching again.</h2>";
                     }
 
                     else

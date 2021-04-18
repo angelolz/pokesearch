@@ -28,6 +28,12 @@
         $errors[] = "There should be at least 1 move.";
     }
 
+    $pokemonTeam = getPokemon($teamId);
+    if(count($pokemonTeam) == 6)
+    {
+        $errors[] = "There cannot be more than 6 Pokémon in a team.";
+    }
+
     //check if pokemon is valid
     $url = "https://pokeapi.co/api/v2/pokemon/" . str_replace(" ", "-", strtolower($pkmnName));
     $headers = get_headers($url, 1);
