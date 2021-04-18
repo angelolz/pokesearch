@@ -1,0 +1,16 @@
+.text-block p {
+    text-align: justify;
+}
+
+.text-block a {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.text-block a:hover {
+    text-decoration: underline;
+}
+
+.text-block a:visited {
+    color: blue;
+}

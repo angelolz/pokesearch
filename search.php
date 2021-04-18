@@ -45,6 +45,7 @@ switch($type)
         <?php require_once 'layouts/mininav.php'; ?>
         <div class="content">
             <?php require_once 'layouts/header.php'; ?>
+            <script src=https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js></script>
             <script src=js/closeBox.js></script>
             <span class="content-body">
                 <h1>Search</h1>

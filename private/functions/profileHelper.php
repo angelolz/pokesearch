@@ -82,22 +82,6 @@ function addPokemon($teamId, $pkmnName, $move1, $move2, $move3, $move4)
     }
 }
 
-// TODO
-// function editPokemon($teamId, $newId)
-// {
-//
-// }
-//
-// function removeTeam($teamId)
-// {
-//
-// }
-//
-// function removePokemon($teamId, $id)
-// {
-//
-// }
-
 function getTeam($teamId)
 {
     $db = new DBConnection();

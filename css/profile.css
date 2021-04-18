@@ -70,6 +70,10 @@
     text-align: left;
 }
 
+.teams-list p {
+    margin: 5px 10px;
+}
+
 /*right sidebar stuff */
 .right {
     /* display: flex;
@@ -159,6 +163,7 @@
     font-size: 18px;
     border-radius: 30px;
 }
+
 .pokemon {
     display:flex;
     flex-direction: row;

@@ -4,6 +4,7 @@
     <head>
         <title>Pokésearch | About Us</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/about.css">
         <?php require_once 'layouts/favicon.php'; ?>
     </head>
     <body>
@@ -12,31 +13,36 @@
         <?php require_once 'layouts/header.php'; ?>
         <span class="content-body">
             <h1>About</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in orci
-                nec nisi luctus maximus in id ex. Donec orci purus, tincidunt quis ante
-                at, vehicula imperdiet mauris. Nunc a est feugiat, molestie odio et, ultrices odio.
-                Vivamus eget ornare mi. Integer cursus at quam nec sodales. Nulla efficitur molestie mauris ac faucibus.
-                Vivamus magna mauris, porta ut sapien vitae, bibendum facilisis velit. Nunc euismod ut nisi id iaculis.
-                Mauris dignissim leo id cursus placerat. Vestibulum et maximus nibh.
+            <div class="text-block">
+
+            <p>Hey there! Welcome to Pokésearch. I made this website as my project
+                for my <i>Intro to Web Development Class</i>. The class was really fun and
+                I've learned so much stuff from this class, even though I've faced
+                many, many difficulties as I was creating this site.
             </p>
 
-            <p>Mauris eget odio nulla. Vestibulum interdum mauris eget neque lacinia
-                viverra. Duis eu elementum felis. In viverra, mauris eu pellentesque mollis,
-                ligula lorem consequat turpis, id suscipit est purus vel metus. Fusce sed odio
-                vestibulum, tempus enim pharetra, venenatis mi. Sed at turpis ut velit ultricies
-                facilisis. Quisque consequat lacinia enim, ut faucibus elit dictum ut. Nam faucibus
-                erat et tellus varius, et faucibus lacus volutpat. Nullam ac ante sollicitudin,
-                consectetur lorem sed faucibus lectus. Phasellus a mattis sem, sit amet ultrices lacus.
+            <p>When I was thinking of a website to make, I decided to do something that would
+                be API-driven. I was used to using APIs already since I've used an Animal Crossing
+                Lookup API called <a href="https://api.nookipedia.com/">Nookipedia</a> for my
+                <a href="https://top.gg/bot/701038771776520222">Animal Crossing Discord bot</a> before. Turns out
+                that there was a <a href="https://pokeapi.co/">nice API</a> for Pokémon games, and I figured that it would be
+                easy to make a website that implements this API! <i>(Spoiler alert: it wasn't.)</i>
             </p>
 
-            <p>Cras at nisi sed elit congue facilisis nec in magna. Nunc ultrices
-                elit vel neque sagittis, in viverra sem maximus. Nam lacinia dui nisi,
-                quis aliquet ex blandit et. Curabitur eu velit tempus, gravida justo vel,
-                tincidunt massa. Ut imperdiet sem blandit, ultricies felis et, tincidunt est.
-                Nullam nibh ante, laoreet eu congue id, porttitor at velit. Aenean dignissim id nibh ut volutpat.
-                Maecenas porttitor magna non turpis suscipit, vel mollis nunc placerat. Nam facilisis, diam sit
-                amet cursus viverra, odio elit imperdiet sapien, sed convallis ex mauris ut ipsum. Vivamus ante sapien,
-                sagittis in malesuada ac, maximus et metus.</p>
+            <p>Despite the hardships that I've went through, it was really fun for me to create this website and figure out
+                how I would be able to use 5 different languages/markups <i>(PHP, JS, MySQL, CSS, HTML)</i> in one semester.
+            </p>
+
+            <p>I wanna thank all my friends who gave me improvements to make while I was making this website, especially helping me
+                figure out what some of the information from the PokéRest API meant (since I don't really play Pokémon games, oops).
+                I also want to thank my professor for making a class fun and interesting to learn about, while still teaching the content
+                excellently.
+            </p>
+
+            <p>I hope you enjoy the website, and if you like it, please consider showing some of your support through
+                <a href="https://ko-fi.com/angelolz">Ko-Fi</a>! If you discover any problems or would like to give some suggestions, please
+                <a href="contact.php">contact me</a>.
+            </div>
         </span>
         </div>
         <?php require_once 'layouts/footer.php'; ?>

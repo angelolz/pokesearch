@@ -184,6 +184,12 @@ p {
     text-decoration: underline;
 }
 
+.text-block
+{
+    margin: 5px 10%;
+}
+
+
 /* footer */
 .footer {
     clear: both;
@@ -294,12 +300,20 @@ p {
     border: 2px solid #FF0000;
 }
 
-/* others */
+/* hidden property */
 .hidden {
     visibility: hidden;
 }
 
-#close {
+/* success/fail message boxes */
+.success #close {
+  float:right;
+  position: relative;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.fail #close {
   float:right;
   position: relative;
   top: 5px;
@@ -312,6 +326,14 @@ p {
   text-decoration: underline;
   cursor: pointer;
 }
+
+/* client-side validation message */
+div .invalid {
+    margin: 2px auto;
+    color: red;
+    font-weight: bold;
+}
+
 
 /* screen size rules */
 @media screen and (max-width:1280px) {

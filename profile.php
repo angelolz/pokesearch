@@ -37,6 +37,10 @@ else
         <div class="content">
             <?php
                 require_once 'layouts/header.php';
+                echo '<script src=https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js></script>';
+                echo '<script src=https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.js></script>';
+                echo '<script src=js/validation/addTeamValidation.js></script>';
+                echo '<script src=js/validation/addPokemonValidation.js></script>';
                 echo '<script src=js/closeBox.js></script>';
                 if(!isset($_SESSION['authenticated']))
                 {
@@ -85,7 +89,7 @@ else
                     </span>
                     <div id="create-team-box" class="hidden">
                         <h3>Enter your new Team Name:</h3>
-                        <form method="post" action="private/handlers/create_team_handler.php">
+                        <form name="add-team" method="post" action="private/handlers/create_team_handler.php">
                             <?php
                             if(isset($_SESSION['form_data']['team-name']))
                             {
@@ -169,9 +173,10 @@ else
 
                         ?>
                         <div id="addPokemonForm" class="hidden">
-                            <form method="post" action="private/handlers/add_pokemon_handler.php">
+                            <form name="add-pokemon" method="post" action="private/handlers/add_pokemon_handler.php">
                                 <p><b>Add a Pokémon:</b></p>
                                 <?php
+                                //TODO: check for if the teamId matches the owner, since people can modify this
                                 echo '<input type="hidden" name="teamId" value="' . $teamId . '">';
 
                                 if(isset($_SESSION['form_data']['pokemon']))

@@ -11,6 +11,8 @@
         <?php require_once 'layouts/mininav.php'; ?>
         <div class="content">
         <?php require_once 'layouts/header.php'; ?>
+        <script src=https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js></script>
+        <script src=js/validation/loginValidation.js></script>
         <script src=js/closeBox.js></script>
 			<span class="content-body">
                 <?php
@@ -50,24 +52,25 @@
                 ?>
     			<h1>Login</h1>
                 <div class="input-box">
-                    <form method="post" action="private/handlers/login_handler.php">
+                    <form name="login" method="post" action="private/handlers/login_handler.php">
                         <?php
+                        echo "<div>";
                         if(isset($_SESSION['form_data']['username']))
                         {
                             echo '<input class="textbox" type="text" value="' . htmlspecialchars($_SESSION['form_data']['username']) . '" name="username" placeholder="Email/Username"/>';
                         }
 
+
                         else
                         {
                             echo '<input class="textbox" type="text" name="username" placeholder="Email/Username"/>';
                         }
-
+                        echo "</div>";
                         ?>
-                        <br>
-                        <input class="textbox"  type="password" name="password" placeholder="Password"/>
-                        <br>
+                        <div>
+                            <input class="textbox"  type="password" name="password" placeholder="Password"/>
+                        </div>
                         <input class="button" type="submit" value="Login"/>
-                        <button class="button" id="forgot"><a href="forgot_password.php">Forgot your password?</a></button>
                     </form>
                     <p>Don't have an account? <strong>Register <a href="register.php">here</a>!</strong></p>
                 </div>
