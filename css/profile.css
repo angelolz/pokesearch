@@ -32,6 +32,10 @@
 #list a:hover {
     text-decoration: underline;
 }
+
+#create-team:hover {
+    text-decoration: underline;
+}
 #create-team-box {
     margin: 10px 10px;
     padding: 5px 20px;
@@ -97,6 +101,11 @@
     font-weight: bold;
     font-size: 18px;
 }
+
+#addPokemon:hover {
+    text-decoration: underline;
+}
+
 #addPokemonForm.hidden {
     display: none;
 }

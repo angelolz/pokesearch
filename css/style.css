@@ -65,8 +65,13 @@ p {
     border-style: none;
     border-radius: 30px;
     text-align: center;
+    text-decoration: none;
     font-weight: bold;
     font-size: 18px;
+}
+
+.userbox .user-buttons:hover {
+    text-decoration: underline;
 }
 
 /* logo */
@@ -261,6 +266,14 @@ p {
 .mini-button-group {
     display: flex;
     flex-direction: row;
+}
+
+.mini-button-group a {
+    text-decoration: none;
+}
+
+.mini-button-group a:hover {
+    text-decoration: underline;
 }
 
 .mini-user-buttons {

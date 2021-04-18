@@ -73,6 +73,10 @@
     margin-right: 15px;
 }
 
+.info:hover h3 {
+    text-decoration: underline;
+}
+
 .info h2 {
     margin-bottom: 5px;
 }
