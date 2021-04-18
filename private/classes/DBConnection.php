@@ -77,7 +77,7 @@ class DBConnection
     }
 
     //login functions
-    public function userExists($username, $password)
+    public function userExists($con, $username, $password)
     {
         $con = $this->getConnection();
         try
