@@ -32,6 +32,7 @@
         $logger->LogWarn(print_r($errors,1));
         $_SESSION['messages'] = $errors;
         $_SESSION['class'] = "fail";
+        $_SESSION['form_data'] = $_POST;
         header('Location:  ../../login.php');
         exit;
     }
@@ -53,6 +54,7 @@
         {
             $_SESSION['messages'][] = "The email/password you've entered is incorrect.";
             $_SESSION['class'] = "fail";
+            $_SESSION['form_data'] = $_POST;
             $logger->LogInfo("auth = false");
             header('Location:  ../../login.php');
             exit;

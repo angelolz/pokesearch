@@ -1,5 +1,5 @@
 <?php
-function emailExists($dbc, $email)
+function emailExists($email)
 {
     $con = $dbc->getConnection();
     try
@@ -18,7 +18,7 @@ function emailExists($dbc, $email)
     }
 }
 
-function usernameTaken($dbc, $username)
+function usernameTaken($username)
 {
     $con = $dbc->getConnection();
     try

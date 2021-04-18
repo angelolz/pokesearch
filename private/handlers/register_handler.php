@@ -2,7 +2,6 @@
     require_once '../../init.php';
     require_once CLASSES_PATH . '/DBConnection.php';
     require_once CLASSES_PATH . '/KLogger.php';
-    require_once FUNCTIONS_PATH . '/emailUsernameExists.php';
 
     session_start();
 
@@ -98,8 +97,8 @@
         else
         {
             $_SESSION['class'] = "fail";
-            $usernameTaken = usernameTaken($username);
-            $emailExists = emailExists($email);
+            $usernameTaken = $dbc->usernameTaken($username);
+            $emailExists = $dbc->emailExists($email);
 
             if($usernameTaken['exists'] == 1)
             {

@@ -77,7 +77,7 @@ class DBConnection
     }
 
     //login functions
-    public function userExists($con, $username, $password)
+    public function userExists($username, $password)
     {
         $con = $this->getConnection();
         try
@@ -111,7 +111,7 @@ class DBConnection
 
     public function emailExists($email)
     {
-        $con = $dbc->getConnection();
+        $con = $this->getConnection();
         try
         {
             $q = $con->prepare("SELECT EXISTS(SELECT * FROM Users WHERE email = :email) AS 'exists'");
@@ -130,7 +130,7 @@ class DBConnection
 
     public function usernameTaken($username)
     {
-        $con = $dbc->getConnection();
+        $con = $this->getConnection();
         try
         {
             $q = $con->prepare("SELECT EXISTS(SELECT * FROM Users WHERE username = :username) AS 'exists'");
