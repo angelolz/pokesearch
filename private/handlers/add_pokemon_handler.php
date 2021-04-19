@@ -12,7 +12,7 @@
     $move1 = trim($_POST['move-1']);
     $move2 = trim($_POST['move-2']);
     $move3 = trim($_POST['move-3']);
-    $move4 = trim($_POST['move-2']);
+    $move4 = trim($_POST['move-4']);
 
     $errors = array();
     $dbc = new DBConnection();
