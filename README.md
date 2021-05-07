@@ -4,7 +4,7 @@ This project is a website that allows you to look up information about Pokémon,
 A live webpage for this project is available [here](https://www.pokesearch.org/)!
 
 # Features
-- Working paginated list of all the Pokémon, moves, and items!
+- **Working paginated list of all the Pokémon, moves, and items!**
     ![Pokémon listing](https://i.imgur.com/vSyxmVN.png)
     The first page result of the Pokémon listing.
     
@@ -14,7 +14,7 @@ A live webpage for this project is available [here](https://www.pokesearch.org/)
     ![Pokémon Items listing](https://i.imgur.com/dDYSSml.png)
     The first page result of the Pokémon items listing.
     
-- Informataion lookup for each individual Pokémon, moves, or items!
+- **Informataion lookup for each individual Pokémon, moves, or items!**
     ![Pokémon Information Page for Pikachu](https://i.imgur.com/SENJm5G.png)
     The Pokémon Information Page for Pikachu.
     
@@ -24,11 +24,11 @@ A live webpage for this project is available [here](https://www.pokesearch.org/)
     ![Item Information Page for Oran Berry](https://i.imgur.com/yz5yzaP.png)
     The Item Information Page for the item Oran Berry.
 
-- Working search bar for all three categories!
-    ![Search results](https://i.imgur.com/OkQ0h9O.png)
+- **Working search bar for all three categories!**
+    ![Search results](https://i.imgur.com/OkQ0h9O.png)  
     I'm especially proud of this one as I've been able to get fuzzy searching working. Also, if you entered the name of the Pokémon, move, or item exactly, it will take you directly to the page!
 
-- Pokémon team management!
+- **Pokémon team management!**
     ![Team management](https://i.imgur.com/nM4t8I3.png)
     This feature was a bit finnicky to work with, as it was the first time I used JS and having to implement AJAX as well. But it works mostly fine! Due to time constraints, I wasn't able to fix the styling for the team management page. :(
 
