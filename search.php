@@ -162,7 +162,7 @@ switch($type)
                         {
                             $pokemon = file_get_contents($url);
                             $pokemon = json_decode($pokemon);
-                            header('Location: pokemon.php?id=' . $pokemon->id);
+                            header('Location: ' . $php . '.php?id=' . $pokemon->id);
                             exit;
                         }
                     }
