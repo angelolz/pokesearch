@@ -24,7 +24,7 @@ A live webpage for this project is available [here](https://www.pokesearch.org/)
     ![Item Information Page for Oran Berry](https://i.imgur.com/yz5yzaP.png)
     The Item Information Page for the item Oran Berry.
 
-- **Working search bar for all three categories!**
+- **Working search bar for all three categories!**  
     ![Search results](https://i.imgur.com/OkQ0h9O.png)  
     I'm especially proud of this one as I've been able to get fuzzy searching working. Also, if you entered the name of the Pokémon, move, or item exactly, it will take you directly to the page!
 
