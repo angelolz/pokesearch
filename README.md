@@ -15,13 +15,13 @@ A live webpage for this project is available [here](https://www.pokesearch.org/)
     The first page result of the Pokémon items listing.
     
 - Informataion lookup for each individual Pokémon, moves, or items!
-    ![Pokémon Information Page for Pikachu](https://i.imgur.com/vSyxmVN.png)
+    ![Pokémon Information Page for Pikachu](https://i.imgur.com/SENJm5G.png)
     The Pokémon Information Page for Pikachu.
     
-    ![Move Information Page for Stomp](https://i.imgur.com/m9dHQ2l.png)
+    ![Move Information Page for Stomp](https://i.imgur.com/HTd7MP4.png)
     The Move Information Page for the move Stomp.
 
-    ![Item Information Page for Oran Berry](https://i.imgur.com/dDYSSml.png)
+    ![Item Information Page for Oran Berry](https://i.imgur.com/yz5yzaP.png)
     The Item Information Page for the item Oran Berry.
 
 - Working search bar for all three categories!
