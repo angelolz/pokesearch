@@ -1,8 +1,6 @@
 # Pokésearch
 This project is a website that allows you to look up information about Pokémon, their moves, and the different items. I made this website for my CS401 Intro to Web Development class. This was a way for me to showcase all the skills I've learned throughout the course, where I implemented **HTML, CSS, JS, SQL and PHP** in this website. I wanted to do something that was API driven, since I've had some experience dealing with API's before with my [Animal Crossing Discord Bot](https://top.gg/bot/701038771776520222).
 
-A live webpage for this project is available [here](https://www.pokesearch.org/)!
-
 # Features
 - **Working paginated list of all the Pokémon, moves, and items!**
     ![Pokémon listing](https://i.imgur.com/vSyxmVN.png)
